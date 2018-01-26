@@ -7,9 +7,14 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour {
 
-    Camera cam;  // get reference to the main camera
+    //Camera cam;  // get reference to the main camera
     [SerializeField] LayerMask movementMask; // reference to Ground layer; set in the inspector
     NavMeshAgent agent; // get reference to the agent; used for navigation
+    GameObject[] enemies; // array of all enemies in scene
+    float distanceToEnemy; // distance from this enemy to nearest enemy
+    float shortestDistance; // shortest distance between this enemy & other enemies
+    GameObject nearestEnemy = null; // we will be finding the nearest enemy
+    public float aggroRange = 0.5f; // the distance in which the enemy will target nearby enemies
 
     //int raycastRange = 1000; // range of raycast for click
 
@@ -17,10 +22,11 @@ public class PlayerController : MonoBehaviour {
     private int waypointIndex = 0; // index for which waypoint to travel to
 
     void Start () {
-        cam = Camera.main; // obtain camera reference
+        //cam = Camera.main; // obtain camera reference
         agent = GetComponent<NavMeshAgent>(); // obtain agent
 
         target = Waypoints.points[waypointIndex]; // obtain array of waypoints
+        enemies = GameObject.FindGameObjectsWithTag("Enemy"); // identify enemies in scene; MUST PUT THIS IN UPDATE IF ENEMIES SPAWN DURING GAMEPLAY
     }
 	
 	void Update () {
@@ -45,7 +51,26 @@ public class PlayerController : MonoBehaviour {
         {
             GetNextWaypoint(); // go to next waypoint
         }
-	}
+
+        shortestDistance = Mathf.Infinity; // reset distance between enemy & nearest other enemy
+        foreach (GameObject enemy in enemies) // loop through all enemies in scene
+        {
+            if (this.gameObject != enemy) // exclude this enemy from the loop, since this is also an enemy & we don't want this to target itself
+            {
+                distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position); // calculate distances between this enemy & other enemies
+                if (distanceToEnemy < shortestDistance) // have we found an enemy that is closer than the others?
+                {
+                    shortestDistance = distanceToEnemy; // set shortest distance
+                    nearestEnemy = enemy; // set nearest enemy
+                }
+            }
+        }
+        if(nearestEnemy != null && shortestDistance <= aggroRange) // if there is another enemy within range
+        {
+            MoveToPoint(nearestEnemy.transform.position); // move towards the nearest enemy
+            print("near an enemy!");
+        }
+    }
 
     void GetNextWaypoint()
     {
