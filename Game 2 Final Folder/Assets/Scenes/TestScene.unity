@@ -495,13 +495,28 @@ GameObject:
   - component: {fileID: 1496847338}
   - component: {fileID: 1496847337}
   - component: {fileID: 1496847336}
+  - component: {fileID: 1496847335}
   m_Layer: 0
-  m_Name: Ron's Test Enemy (1)
+  m_Name: Ron's Test Enemy (red)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1496847335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496847334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e526afa47e459b418b5645724f69979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dead: 0
+  deathObject: {fileID: 1564203385014828, guid: f18a306e5c9a5574c8bb23514496f444,
+    type: 2}
 --- !u!54 &1496847336
 Rigidbody:
   m_ObjectHideFlags: 0

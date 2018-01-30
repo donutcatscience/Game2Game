@@ -45,17 +45,19 @@ public class PlayerController : MonoBehaviour {
         */
         #endregion
 
-        MoveToPoint(target.position); // agent will move to waypoint
+        //MoveToPoint(target.position); // agent will move to waypoint
 
         if(Vector3.Distance(transform.position, target.position) <= 0.2f) // if agent has reached close enough to waypoint
         {
             GetNextWaypoint(); // go to next waypoint
         }
 
+        #region track enemies
         shortestDistance = Mathf.Infinity; // reset distance between enemy & nearest other enemy
+        nearestEnemy = null;
         foreach (GameObject enemy in enemies) // loop through all enemies in scene
         {
-            if (this.gameObject != enemy) // exclude this enemy from the loop, since this is also an enemy & we don't want this to target itself
+            if (this.gameObject != enemy  && enemy != null) // exclude this enemy from the loop, since this is also an enemy & we don't want this to target itself
             {
                 distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position); // calculate distances between this enemy & other enemies
                 if (distanceToEnemy < shortestDistance) // have we found an enemy that is closer than the others?
@@ -65,11 +67,14 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-        if(nearestEnemy != null && shortestDistance <= aggroRange) // if there is another enemy within range
+        if(nearestEnemy != null && shortestDistance <= aggroRange) // if there is an enemy within range
         {
             MoveToPoint(nearestEnemy.transform.position); // move towards the nearest enemy
             print("near an enemy!");
         }
+        else MoveToPoint(target.position); // agent will move towarsds waypoint
+        #endregion
+
     }
 
     void GetNextWaypoint()
