@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WillowHover : MonoBehaviour {
-    public GameObject CandleBody;
+public class ObjectHover : MonoBehaviour {
+    public GameObject Object;
     private Vector3 offset;
 
 
     // Use this for initialization
     void Start () {
-        offset = transform.position - CandleBody.transform.position;
+        offset = transform.position - Object.transform.position;
     }
 	
 	// Update is called once per frame
@@ -19,6 +19,6 @@ public class WillowHover : MonoBehaviour {
 
         private void LateUpdate()
     {
-        transform.position = CandleBody.transform.position + offset;
+        transform.position = Object.transform.position + offset;
     }
 }
