@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.56452405, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -399,6 +399,8 @@ GameObject:
   - component: {fileID: 1015663568}
   - component: {fileID: 1015663567}
   - component: {fileID: 1015663566}
+  - component: {fileID: 1015663565}
+  - component: {fileID: 1015663571}
   m_Layer: 0
   m_Name: Ron's Test Enemy
   m_TagString: Enemy
@@ -406,6 +408,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1015663565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015663564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73628728a84672b4c92e3aa17030e47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  target: {fileID: 0}
+  distance: 0
+  inRange: 0
 --- !u!114 &1015663566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +437,6 @@ MonoBehaviour:
   movementMask:
     serializedVersion: 2
     m_Bits: 256
-  aggroRange: 8
 --- !u!54 &1015663567
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -484,6 +500,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015663571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015663564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92e6e03b2bb3964b94e92c811825a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!1 &1496847334
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +524,7 @@ GameObject:
   - component: {fileID: 1496847337}
   - component: {fileID: 1496847336}
   - component: {fileID: 1496847335}
+  - component: {fileID: 1496847340}
   m_Layer: 0
   m_Name: Ron's Test Enemy (red)
   m_TagString: Enemy
@@ -580,6 +609,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1496847340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496847334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141b3988fc349c34fbdf404a04afc92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 54745797343672784, guid: b2bdcc199f1ecc0468c6e36928d0289e, type: 2}
 --- !u!1 &1505540619
 GameObject:
   m_ObjectHideFlags: 0

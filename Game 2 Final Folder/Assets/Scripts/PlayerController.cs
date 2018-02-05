@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     float distanceToEnemy; // distance from this enemy to nearest enemy
     float shortestDistance; // shortest distance between this enemy & other enemies
     GameObject nearestEnemy = null; // we will be finding the nearest enemy
-    public float aggroRange = 0.5f; // the distance in which the enemy will target nearby enemies
+    float aggroRange = 0.5f; // the distance in which the enemy will target nearby enemies
 
     //int raycastRange = 1000; // range of raycast for click
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
         if(nearestEnemy != null && shortestDistance <= aggroRange) // if there is an enemy within range
         {
             MoveToPoint(nearestEnemy.transform.position); // move towards the nearest enemy
-            print("near an enemy!");
+            //print("near an enemy!");
         }
         else MoveToPoint(target.position); // agent will move towarsds waypoint
         #endregion
