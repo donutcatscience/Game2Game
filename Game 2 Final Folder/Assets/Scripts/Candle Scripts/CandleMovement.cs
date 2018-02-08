@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class CandleMovement : MonoBehaviour {
     public float speed;
     public Text gemText;
+    public Text modeText;
+    public Rigidbody myRigidBody;
 
+    private string currentMode = "None";
     private int gemCount = 0;
-    private Rigidbody myRigidBody;
-
+  
     // Use this for initialization
     void Start ()
     {
@@ -29,17 +31,23 @@ public class CandleMovement : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        //collects gems
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
             gemCount = gemCount + 1;
-            gemText.text = "Score: " + gemCount;
+            gemText.text = "Gem Count: " + gemCount;
         }
 
     }
 
     // Update is called once per frame
     void Update () {
-
-	}
+        
+        //handle Mode Text
+        if (Input.GetKey(KeyCode.LeftShift)) { currentMode = "Utility"; }
+        else if (Input.GetKey(KeyCode.Space)) { currentMode = "Caster"; }
+        else{ currentMode = "None";}
+        modeText.text = "Current Mode: " + currentMode;
+    }
 }
