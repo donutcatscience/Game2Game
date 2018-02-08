@@ -6,7 +6,10 @@ public class CasterMode : MonoBehaviour {
     public GameObject Bullet_Emitter;
     public GameObject Bullet;
     public float Bullet_Forward_Force;
+    public int fireRate = 15;
 
+    private int frameCount = 0;
+    private bool fire = false;
 
     // Use this for initialization
     void Start()
@@ -22,15 +25,16 @@ public class CasterMode : MonoBehaviour {
             //prevent player from moving in caster mode
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0) && frameCount > fireRate)
+        {
+            fire = true;
+        }
+
+        if (fire)
         {
             //The Bullet instantiation happens here.
             GameObject Temporary_Bullet_Handler;
             Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
-
-            //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
-            //This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
-            Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
 
             //Retrieve the Rigidbody component from the instantiated Bullet and control it.
             Rigidbody Temporary_RigidBody;
@@ -41,6 +45,9 @@ public class CasterMode : MonoBehaviour {
 
             //set the Bullets to self destruct after 3
             Destroy(Temporary_Bullet_Handler, 3.0f);
+            fire = false;
+            frameCount = 0;
         }
+        ++frameCount;
     }
 }
