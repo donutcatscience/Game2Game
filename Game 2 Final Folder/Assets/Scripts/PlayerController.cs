@@ -7,88 +7,138 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour {
 
-    //Camera cam;  // get reference to the main camera
-    [SerializeField] LayerMask movementMask; // reference to Ground layer; set in the inspector
-    NavMeshAgent agent; // get reference to the agent; used for navigation
-    GameObject[] enemies; // array of all enemies in scene
-    float distanceToEnemy; // distance from this enemy to nearest enemy
-    float shortestDistance; // shortest distance between this enemy & other enemies
-    GameObject nearestEnemy = null; // we will be finding the nearest enemy
-    public float aggroRange = 0.5f; // the distance in which the enemy will target nearby enemies
+    #region variables
+    NavMeshAgent agent;                     // get reference to the agent; used for navigation
+    NavMeshPath primaryPath;                // stores the path to wawypoints
+    NavMeshPath secondaryPath;              // stores the path to nearest unit
+    NavMeshPath tempPath;                   // stores any other paths the agent might consider
 
-    //int raycastRange = 1000; // range of raycast for click
+    GameObject[] units;                     // array of all units in scene
+    GameObject nearestUnit;                 // stores the nearest enemy
 
-    private Transform target; // targets for waypoints
-    private int waypointIndex = 0; // index for which waypoint to travel to
+    public  float aggroRange;               // the distance in which the unit will target nearby enemy units
+    public  float primaryPathDist;          // stores the distance of the primary path
+    public  float secondaryPathDist;        // stores the distance of the secondary path
+            float shortestDistance;         // shortest distance between this enemy & other enemies
 
-    void Start () {
-        //cam = Camera.main; // obtain camera reference
-        agent = GetComponent<NavMeshAgent>(); // obtain agent
+    int waypointIndex;                      // traverses array of units in scene
 
-        target = Waypoints.points[waypointIndex]; // obtain array of waypoints
-        enemies = GameObject.FindGameObjectsWithTag("Enemy"); // identify enemies in scene; MUST PUT THIS IN UPDATE IF ENEMIES SPAWN DURING GAMEPLAY
+    public GameObject primaryTarget;        // stores the target of the primary path
+    public GameObject secondaryTarget;      // stores the target of the secondary path
+    public GameObject tempTarget;           // used for swapping the targets
+
+    Targeting targeting;                    // used for switching of states
+    #endregion
+
+    public enum Targeting                   // Mini-state machine that determines whether the unit is targeting waypoints or units
+    {
+        units,
+        waypoints
+    };
+
+    void Start ()
+    {
+        nearestUnit = null;                                                 // nearest enemy will be computed in Update
+        agent = GetComponent<NavMeshAgent>();                               // obtain agent
+        primaryPath = new NavMeshPath();                                    // create path
+        secondaryPath = new NavMeshPath();                                  // create path
+        tempPath = new NavMeshPath();                                       // temporary path if necessary
+        waypointIndex = 0;                                                  // set position in array of waypoints
+        primaryTarget = Waypoints.points[waypointIndex].gameObject;         // set primary target to first waypoint in array
+        secondaryTarget = nearestUnit;                                      // set secondary target to nearest unit
+        units = ListOfUnits.units;                                          // identify enemies in scene; MUST PUT THIS IN UPDATE WHEN ENEMIES SPAWN DURING GAMEPLAY
+        
+        shortestDistance = Mathf.Infinity;                                  // set distance between this unit & non-existing nearby unit to infinity
+        targeting = Targeting.waypoints;                                    // set state to target waypoints by default
+        aggroRange = 8f;                                                    // set aggro range to 8 units
     }
-	
-	void Update () {
-        #region left click to move player (TEST)
-        /*
-		if(Input.GetMouseButtonDown(0)) // On left mouse button press
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition); // cast a ray where the user clicked
-            RaycastHit hit; // obtain information on what was clicked
 
-            if (Physics.Raycast(ray, out hit, raycastRange, movementMask)) // if the mouse clicked on the Ground layer, move the agent to the point
+    void Update()
+    {
+        if (CalcPath(primaryPath, primaryTarget)) agent.SetPath(primaryPath);                                                                               // if the path is uninterrupted, set the path; otherwise, clear the path
+        else agent.ResetPath();
+
+        if (Vector3.Distance(transform.position, Waypoints.points[waypointIndex].position) < .3f && targeting == Targeting.waypoints) GetNextWaypoint();    // get the next waypoint if current waypoint is reached within distance
+
+        #region find nearest unit       // WILL BE REWORKING THIS SOON, it works... for now.
+        if (nearestUnit == null) shortestDistance = Mathf.Infinity;                                                                                         // reset distance to infinity if nearest unit is null
+        foreach (GameObject unit in units)                                                                                                                  // loop through all units in scene
+        {
+            if (unit == null || unit == this.gameObject) continue;                                                                                          // skip the iteration if the unit is null or itself
+            if (Vector3.Distance(transform.position, unit.transform.position) < shortestDistance)                                                           // if we find a unit that is closer than the others, we obtain their references
             {
-                MoveToPoint(hit.point); // calls a function to move agent
+                nearestUnit = unit;                                                                                                                         // identify nearest unit
+                shortestDistance = Vector3.Distance(transform.position, nearestUnit.transform.position);                                                    // set the distance between self & nearest unit       
             }
         }
-        */
         #endregion
-
-        //MoveToPoint(target.position); // agent will move to waypoint
-
-        if(Vector3.Distance(transform.position, target.position) <= 0.2f) // if agent has reached close enough to waypoint
+                                                                                                                                                            // REWORK NEEDED
+        if (targeting == Targeting.waypoints)                                                                                                               // while the unit is focused on waypoints,                                                     
         {
-            GetNextWaypoint(); // go to next waypoint
+            secondaryTarget = nearestUnit;                                                                                                                  // set the secondary target to the nearest unit
         }
 
-        #region track enemies
-        shortestDistance = Mathf.Infinity; // reset distance between enemy & nearest other enemy
-        nearestEnemy = null;
-        foreach (GameObject enemy in enemies) // loop through all enemies in scene
+        CalcPath(secondaryPath, secondaryTarget);                                                                                                           // calculate path to nearest unit
+
+        primaryPathDist = PathDistance(primaryPath, Color.red);                                                                                             // calculate path distance for primary path & show path in inspector
+        secondaryPathDist = PathDistance(secondaryPath, Color.blue);                                                                                        // calculate path distance for secondary path & show path in inspector
+
+        if (secondaryPathDist < aggroRange && targeting != Targeting.units)                                                                                 // if the unit is not already targeting other units & another unit is within range,
         {
-            if (this.gameObject != enemy  && enemy != null) // exclude this enemy from the loop, since this is also an enemy & we don't want this to target itself
+            targeting = Targeting.units;                                                                                                                    // target the unit
+            SwapTargets();                                                                                                                                  // swap targets so primary path is now targeting unit
+        }
+
+        if(targeting == Targeting.units)                                                                                                                    // if unit is targeting other unit
+        {
+            if (nearestUnit == null)                                                                                                                        // if the nearest enemy no longer exists; i.e.  nearest enemy is dead
             {
-                distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position); // calculate distances between this enemy & other enemies
-                if (distanceToEnemy < shortestDistance) // have we found an enemy that is closer than the others?
-                {
-                    shortestDistance = distanceToEnemy; // set shortest distance
-                    nearestEnemy = enemy; // set nearest enemy
-                }
+                targeting = Targeting.waypoints;                                                                                                            // go back to targeting waypoints
+                SwapTargets();                                                                                                                              // swap the targets back
             }
         }
-        if(nearestEnemy != null && shortestDistance <= aggroRange) // if there is an enemy within range
-        {
-            MoveToPoint(nearestEnemy.transform.position); // move towards the nearest enemy
-            print("near an enemy!");
-        }
-        else MoveToPoint(target.position); // agent will move towarsds waypoint
-        #endregion
 
     }
 
-    void GetNextWaypoint()
+    #region functions
+    float PathDistance(NavMeshPath path, Color color)                               // returns the distance of the path & draws path in editor
     {
-        waypointIndex++; // set index to next waypoint
-        if(waypointIndex >= Waypoints.points.Length) // check if index reaches out of bounds
+        float pathDist = 0f;                                                        // reset distance
+        for (int i = 0; i < path.corners.Length - 1; i++)                           // calculate for every corner of the path
         {
-            waypointIndex = 0; // set it back to the beginning
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], color);            // draw line from current corner to next corner
+            pathDist += Vector3.Distance(path.corners[i], path.corners[i + 1]);     // accumulate distance from current corner to next
         }
-        target = Waypoints.points[waypointIndex]; // set the waypoint
+        return pathDist;                                                            // return total distance of path
     }
 
-    public void MoveToPoint(Vector3 point)
+    bool CalcPath(NavMeshPath path, GameObject target)                              // Calculates a path from self to a target destination; returns true if path is uninterrupted
     {
-        agent.SetDestination(point);
+        if (target == null)                                                         // if our target does not exist, reset our path
+        {
+            agent.CalculatePath(transform.position, path);
+            return false;
+        }
+        agent.CalculatePath(target.transform.position, path);                       // calculates the path
+        if (path.status == NavMeshPathStatus.PathPartial) return false;             // return false if interrupted
+        else return true;                                                           // return true if intact
     }
+
+    void GetNextWaypoint()                                                          // Cycles through array of waypoints
+    {
+        waypointIndex++;                                                            // iterate to next waypoint in array
+        if (waypointIndex >= Waypoints.points.Length)                               // check if index reaches out of bounds
+        {
+            waypointIndex = 0;                                                      // if so, set it back to the beginning
+        }
+        primaryTarget = Waypoints.points[waypointIndex].gameObject;                 // set the waypoint
+    }
+
+    void SwapTargets()                                                              // swaps the targets between waypoint & nearest unit
+    {
+        tempTarget = primaryTarget;
+        primaryTarget = secondaryTarget;
+        secondaryTarget = tempTarget;
+    }
+    #endregion
 }

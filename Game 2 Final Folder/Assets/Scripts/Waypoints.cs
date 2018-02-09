@@ -4,6 +4,8 @@ public class Waypoints : MonoBehaviour {
 
     public static Transform[] points; // array of waypoints set in inspector
 
+    public int waypointIndex = 0;
+
     void Awake()
     {
         points = new Transform[transform.childCount]; // find the size of the array

@@ -4,33 +4,38 @@ using UnityEngine;
 
 public class DeathObjectCollect : MonoBehaviour {
 
-    GameObject[] nearbyUnits;
-    float range;
-    float tempDistance;
-    float step;
+    GameObject[] units;                                           // find nearest unit
+    float range;                                                        // range at which object will attract to unit
+    float tempDistance;                                                 // calculate the distance to unit
+    float step;                                                         // speed
+    GameObject nearestUnit;
 
 	void Start () {
-        nearbyUnits = GameObject.FindGameObjectsWithTag("Enemy");
-        range = 5f;
-        step = 10f * Time.deltaTime;
+        units = ListOfUnits.units;       // find array of all units
+        range = 5f;                                                     // set range
+        step = 10f * Time.deltaTime;                                    // set speed
+        nearestUnit = null;
 	}
 	
 	void Update () {
-		foreach(GameObject unit in nearbyUnits)
+        
+        foreach (GameObject unit in units)                         // for each unit
         {
-            if (unit != null)
+            if (unit != null)                                           // if the unit exists
             {
-                tempDistance = Vector3.Distance(transform.position, unit.transform.position);
-                if (tempDistance < range)
+                nearestUnit = unit;
+                tempDistance = Vector3.Distance(transform.position, unit.transform.position);   // calculate distance between self & unit
+                if (tempDistance < range)                                                       // if within range,
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, unit.transform.position, step);
+                    transform.position = Vector3.MoveTowards(transform.position, unit.transform.position, step);    // go towards unit
                 }
             }
         }
-        if (tempDistance < 1f)
+        
+        if (Vector3.Distance(transform.position, nearestUnit.transform.position) < 1f)  // if close enough to unit
         {
             print("I have consumed an item that was dropped on death!");
-            Destroy(gameObject);
+            Destroy(gameObject);    // destroy self
         }
 	}
 }
