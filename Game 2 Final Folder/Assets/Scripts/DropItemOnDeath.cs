@@ -19,6 +19,7 @@ public class DropItemOnDeath : MonoBehaviour {
         {
             Instantiate(deathObject, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            
         }
 	}
 }
