@@ -2,16 +2,14 @@
 
 public class Waypoints : MonoBehaviour {
 
-    public static Transform[] points; // array of waypoints set in inspector
-
-    public int waypointIndex = 0;
+    public static GameObject[] points; // array of waypoints set in inspector
 
     void Awake()
     {
-        points = new Transform[transform.childCount]; // find the size of the array
+        points = new GameObject[transform.childCount]; // find the size of the array
         for (int i = 0; i < points.Length; i++) // instantiate each instance in the array
         {
-            points[i] = transform.GetChild(i); // obtain the transforms of the waypoint
+            points[i] = transform.GetChild(i).gameObject; // obtain the transforms of the waypoint
         }
     }
 }
