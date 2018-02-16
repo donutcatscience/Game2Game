@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake()
     {
-        floorMask = LayerMask.GetMask("Floor");
+        floorMask = LayerMask.GetMask("Ground");
         playerRigidbody = GetComponent<Rigidbody>();
         gemText.text = "Gem Count: " + gemCount;
     }
