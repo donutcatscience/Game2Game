@@ -22,7 +22,11 @@ public class CasterMode : MonoBehaviour {
     {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            //prevent player from moving in caster mode
+            GetComponent<RunSpeedIncrease>().bonusRunSpeed = 0;
+        }
+        else
+        {
+            GetComponent<RunSpeedIncrease>().bonusRunSpeed = 1;
         }
 
         if (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0) && frameCount > fireRate)
