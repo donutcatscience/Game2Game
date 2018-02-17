@@ -574,13 +574,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8765464d07ae44a98ea1695d318b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targeting: 1
-  waypointDirection: 1
   aggroRange: 7
   waypointRange: 0.5
   primaryPathDist: 0
   secondaryPathDist: 0
   distToNearestUnit: 0
+  waypointTarget: {fileID: 0}
   primaryTarget: {fileID: 0}
   secondaryTarget: {fileID: 0}
   nearestUnit: {fileID: 0}
