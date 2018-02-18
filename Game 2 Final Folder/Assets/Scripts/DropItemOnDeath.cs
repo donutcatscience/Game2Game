@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class DropItemOnDeath : MonoBehaviour {
 
-    bool dead = false;
+    public bool dead;
     public GameObject deathObject;
-
-
-
-    private void OnMouseDown()
-    {
-        dead = true;
-    }
-
-    void Update () {
+	// Update is called once per frame
+	void Update () {
 		if(dead)
         {
             Instantiate(deathObject, transform.position, Quaternion.identity);
