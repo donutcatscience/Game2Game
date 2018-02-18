@@ -6,10 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Projectile
-<<<<<<< HEAD
   - Pick Up
-=======
->>>>>>> AimeeBranch
   layers:
   - Default
   - TransparentFX
