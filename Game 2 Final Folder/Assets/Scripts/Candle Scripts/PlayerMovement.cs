@@ -26,10 +26,14 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Move(horizontal, vertical);
+        }
 
-        Move(horizontal, vertical);
+        // Contuine to Turn character 
         Turning();
 
         //handle Mode Text
