@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour {
 
     #region variables
 
-    Targeting targeting;                 // used for switching of states
+    public Targeting targeting;                 // used for switching of states
+    public WaypointDirection waypointDirection; // used for determining direction of waypoints
 
     NavMeshAgent agent;                     // get reference to the agent; used for navigation
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour {
             int waypointIndex;              // traverses array of units in scene
             int waypointDir;                // direction of traversal
             
-    public  GameObject waypointTarget;      // stores the waypoint that the path will target
+            GameObject waypointTarget;      // stores the waypoint that the path will target
     public  GameObject primaryTarget;       // target for primary path
     public  GameObject secondaryTarget;     // target for secondary path
             GameObject nearestWaypoint;     // stores the nearest waypoint
@@ -61,7 +62,8 @@ public class PlayerController : MonoBehaviour {
         primaryPath = new NavMeshPath();                                // create path
         secondaryPath = new NavMeshPath();                              // create path
         waypointIndex = 0;                                              // set position in array of waypoints
-        waypointTarget = null;
+        waypointTarget = Waypoints.points[waypointIndex].gameObject;    // set target to first waypoint in array
+        
         units = ListOfUnits.units;                                      // identify enemies in scene; MUST PUT THIS IN UPDATE WHEN ENEMIES SPAWN DURING GAMEPLAY
         targeting = Targeting.waypoints;                                // set state to target waypoints by default
         waypointDir = 1;                                                // waypoint traversal proceeds forward
@@ -93,10 +95,7 @@ public class PlayerController : MonoBehaviour {
                 primaryTarget = waypointTarget;                                                                                                     // primary path targets waypoints
                 secondaryTarget = nearestUnit;                                                                                                      // secondary path targets nearest unit
 
-                if (waypointTarget != null && Vector3.Distance(transform.position, waypointTarget.transform.position) < waypointRange)
-                {
-                    if(waypointTarget != null) waypointTarget = null;   // get the next waypoint if current waypoint is reached within distance
-                }
+                if (Vector3.Distance(transform.position, Waypoints.points[waypointIndex].transform.position) < waypointRange) GetNextWaypoint();    // get the next waypoint if current waypoint is reached within distance
 
                 if (distToNearestUnit <= aggroRange)                                                                                                // if unit is within range
                 {
@@ -114,7 +113,8 @@ public class PlayerController : MonoBehaviour {
         else                                                                                                                                        // otherwise, path is invalid.  Reset properties & find next waypoint
         {
             primaryPathDist = Mathf.Infinity;
-            agent.ResetPath();                                                                                                                    // WARNING: this function may be moved elsewhere
+            agent.ResetPath();
+            GetNextWaypoint();                                                                                                                      // WARNING: this function may be moved elsewhere
         }        
 
         if (CalcPath(secondaryPath, secondaryTarget))                                                                                               // calculate secondary path distance
@@ -148,8 +148,6 @@ public class PlayerController : MonoBehaviour {
         else return true;                                                   // return true if intact
     }
 
-    #region no longer needed
-    /*
     void GetNextWaypoint()                                              // Cycles through array of waypoints                        // OUT OF BOUNDS ERROR
     {                                                                       //
         waypointIndex += waypointDir;                                       // iterate to next waypoint in array
@@ -168,8 +166,6 @@ public class PlayerController : MonoBehaviour {
         }                                                                   //
         waypointTarget = Waypoints.points[waypointIndex].gameObject;        // set the waypoint
     }
-    */
-    #endregion
 
     void FindNearest(GameObject[] array, out GameObject nearestObj, out float shortDistance)    // Find nearest unit in gameobject array
     {                                                                                               //
