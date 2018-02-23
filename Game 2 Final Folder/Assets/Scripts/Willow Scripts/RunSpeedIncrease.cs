@@ -7,7 +7,7 @@ public class RunSpeedIncrease : MonoBehaviour {
     public Text runSpeedText;
 
     //following values to be adjusted later
-    public float runSpeedBonus = 1.5F;
+    public float runSpeedBonus = 3.0F;
     public float bonusRunSpeed;
 	// Use this for initialization
 	void Start () {

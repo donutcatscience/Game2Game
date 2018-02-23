@@ -7,9 +7,11 @@ public class CasterMode : MonoBehaviour {
     public GameObject Bullet;
     public float Bullet_Forward_Force;
     public int fireRate = 15;
+    public int leftCastCost = 5;
 
     private int frameCount = 0;
     private bool fire = false;
+    private int currentGemCount;
 
     // Use this for initialization
     void Start()
@@ -29,9 +31,11 @@ public class CasterMode : MonoBehaviour {
             GetComponent<RunSpeedIncrease>().bonusRunSpeed = 1;
         }
 
-        if (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0) && frameCount > fireRate)
+        currentGemCount = GetComponent<PlayerMovement>().gemCount;
+        if (Input.GetKey(KeyCode.Space) && Input.GetMouseButton(0) && frameCount > fireRate && currentGemCount >= leftCastCost)
         {
             fire = true;
+            GetComponent<PlayerMovement>().gemCount -= leftCastCost;
         }
 
         if (fire)

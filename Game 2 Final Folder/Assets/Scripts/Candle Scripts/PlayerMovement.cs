@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public Text gemText;
     public Text modeText;
+    public int gemCount = 0;
 
     private string currentMode = "None";
-    private int gemCount = 0;
 
     void Awake()
     {
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate ()
     {
+        gemText.text = "Gem Count: " + gemCount;
         if (!Input.GetKey(KeyCode.Space))
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
@@ -71,9 +72,10 @@ public class PlayerMovement : MonoBehaviour {
         //collects gems
         if (other.gameObject.CompareTag("Pick Up"))
         {
-            other.gameObject.SetActive(false);
-            gemCount = gemCount + 1;
-            gemText.text = "Gem Count: " + gemCount;
+            Destroy(other.gameObject);
+            int randomGemValue = Random.Range(10, 25);
+            Debug.Log(randomGemValue);
+            gemCount += randomGemValue;
         }
 
     }

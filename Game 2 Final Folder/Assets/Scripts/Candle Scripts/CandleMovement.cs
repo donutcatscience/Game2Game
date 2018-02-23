@@ -8,14 +8,15 @@ public class CandleMovement : MonoBehaviour {
     public Text gemText;
     public Text modeText;
     public Rigidbody myRigidBody;
+    public int gemCount;
 
     private string currentMode = "None";
-    private int gemCount = 0;
   
     // Use this for initialization
     void Start ()
     {
         myRigidBody = GetComponent<Rigidbody>();
+        gemCount = 1;
         gemText.text = "Gem Count: " + gemCount;
 	}
 
@@ -25,7 +26,7 @@ public class CandleMovement : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        myRigidBody.AddForce(movement * speed);
+        myRigidBody.AddForce(movement * speed * GetComponent<RunSpeedIncrease>().bonusRunSpeed);
 
     }
 
@@ -34,16 +35,17 @@ public class CandleMovement : MonoBehaviour {
         //collects gems
         if (other.gameObject.CompareTag("Pick Up"))
         {
-            other.gameObject.SetActive(false);
-            gemCount = gemCount + 1;
-            gemText.text = "Gem Count: " + gemCount;
+            Destroy(other);
+            int randomGemValue = Random.Range(10, 25);
+            Debug.Log(randomGemValue);
+            gemCount += randomGemValue;
         }
 
     }
 
     // Update is called once per frame
     void Update () {
-        
+        gemText.text = "Gem Count: " + gemCount;
         //handle Mode Text
         if (Input.GetKey(KeyCode.LeftShift)) { currentMode = "Utility"; }
         else if (Input.GetKey(KeyCode.Space)) { currentMode = "Caster"; }
