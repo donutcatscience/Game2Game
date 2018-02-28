@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Unit
+  - Enemy
+  - Projectile
+  - Pick Up
   layers:
   - Default
   - TransparentFX
@@ -15,6 +17,7 @@ TagManager:
   - 
   - 
   - Ground
+  - Floor
   - 
   - 
   - 
@@ -37,7 +40,6 @@ TagManager:
   - 
   - 
   - 
-  - Walls
   m_SortingLayers:
   - name: Default
     uniqueID: 0
