@@ -55,6 +55,7 @@ using UnityEngine;
             print("Fire!\n");//test statement
             var newBullet = (Rigidbody)Instantiate(bullet, transform.position + transform.forward, transform.rotation);//creates bullet at character location. 
             newBullet.AddForce(transform.forward * acceleration, ForceMode.Impulse);//adds velocity to bullet causing motion
+            //newBullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
             Destroy(newBullet, 2);// removes bullet object after 2 seconds
         }
        
