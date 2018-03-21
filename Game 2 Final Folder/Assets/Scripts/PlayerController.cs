@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
         units = ListOfUnits.units;                                      // identify enemies in scene; MUST PUT THIS IN UPDATE WHEN ENEMIES SPAWN DURING GAMEPLAY
         targeting = Targeting.waypoints;                                // set state to target waypoints by default
         waypointDir = 1;                                                // waypoint traversal proceeds forward
+        distToNearestWaypoint = 0f;
     }
 
     void Update()

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Unit
+  - waypoint
+  - Attributes
+  - Waypoint B
+  - Waypoint W
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - SphereOfInfluence
+  - Minion
   - 
   - 
   - 
