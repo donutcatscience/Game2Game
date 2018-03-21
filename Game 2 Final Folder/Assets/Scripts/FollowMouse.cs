@@ -25,17 +25,17 @@ public class FollowMouse : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, 1000))
         {
-            targetPosition = hit.point;
-            float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(hit.point.x, 0, hit.point.z)) + 0.85f;
+            targetPosition = hit.point;         
             if (elevatedTerrain)
             {
+                float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(hit.point.x, 0, hit.point.z)) + 0.85f;
                 targetPosition.y = ypos;
             } else
             {
                 targetPosition.y = elevation;
             }
 
-            //lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
+            lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
         }
     }
 
