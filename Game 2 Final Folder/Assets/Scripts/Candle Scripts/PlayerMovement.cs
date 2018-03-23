@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
             //float groundSlopeAngle = Vector3.Angle(floorHit.normal, Vector3.up);
             //if (groundSlopeAngle < 50f) { 
-            float newPosition = Mathf.SmoothDamp(transform.position.y, floatingPoint.y + 0.5f, ref velocity, smoothTime);
+            float newPosition = Mathf.SmoothDamp(transform.position.y, floatingPoint.y + 1.0f, ref velocity, smoothTime);
 
             Vector3 newPoint = new Vector3(transform.position.x, newPosition, transform.position.z);
             transform.position = newPoint;
