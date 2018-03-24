@@ -9,10 +9,12 @@ public class FSM : StateMachineBehaviour
     // NPC will grab access of the minion's arttributes
     public BaseVariables NPC = null;
 
+
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //set the NPC variable here if it is not already set
-        if(NPC == null) NPC = animator.gameObject.transform.root.gameObject.GetComponent<BaseVariables>();
+        if (NPC == null) NPC = animator.gameObject.transform.root.gameObject.GetComponent<BaseVariables>();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -22,19 +24,12 @@ public class FSM : StateMachineBehaviour
         if (NPC.isDead) { NPC.anim.SetBool("isDead", true); NPC.agent.speed = 0f; }
         #endregion
 
-        #region remove enemy minions from nearby units when they die
-        foreach (GameObject minion in NPC.nearbyUnits.ToList())
-        {
-            if (minion.GetComponent<BaseVariables>().isDead)
-            {
-                NPC.nearbyUnits.Remove(minion);
-            }
-        }
-        #endregion
+        
+        NPC.GetComponent<Functions>().RemoveFromListWhenDead(NPC.targetedByUnits);
 
         #region set flags based on nearbyUnits count
         // if there are no nearby units, set flags to false
-        if (NPC.nearbyUnits.Count == 0)
+        if (NPC.nearbyEnemyUnits.Count == 0)
         {
             NPC.anim.SetBool("nearbyMinion", false);
             NPC.anim.SetBool("inMeleeRange", false);
@@ -44,21 +39,16 @@ public class FSM : StateMachineBehaviour
         else
         {
             #region order nearby units by distance
-            if (NPC.nearbyUnits.Count >= 2)
+            if (NPC.nearbyEnemyUnits.Count >= 2)
             {
-                NPC.nearbyUnits = NPC.nearbyUnits.OrderBy(x => Vector3.Distance(NPC.transform.position, x.transform.position)).ToList();
+                NPC.nearbyEnemyUnits = NPC.nearbyEnemyUnits.OrderBy(x => Vector3.Distance(NPC.transform.position, x.transform.position)).ToList();
             }
             #endregion
 
             NPC.anim.SetBool("nearbyMinion", true);
-            NPC.targetMinion = NPC.nearbyUnits[0];
+            NPC.targetMinion = NPC.nearbyEnemyUnits[0];
         }
         #endregion
-
-
-
-
-
 
 
         // if there is a valid target
@@ -75,11 +65,25 @@ public class FSM : StateMachineBehaviour
         }
         else NPC.anim.SetBool("inMeleeRange", false);
 
+        if(NPC.health < 10f && !NPC.isDead)
+        {
+            NPC.anim.SetBool("criticalHealth", true);
+        }
+        else NPC.anim.SetBool("criticalHealth", false);
 
-        
 
-
-
+        #region healer
+        // is this minion a healer?
+        if(NPC.minionType == MinionType.Healer)
+        {
+            // are there any ally units nearby?
+            if (NPC.nearbyAllyUnits.Count != 0)
+            {
+                NPC.anim.SetBool("isHealing", true);
+            }
+            else NPC.anim.SetBool("isHealing", false);
+        }
+        #endregion
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)

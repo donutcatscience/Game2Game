@@ -10,17 +10,29 @@ public class Pursuit : FSM
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.agent.speed = NPC.speed;
-        //NPC.coroutines.StartCoroutine(Coroutines.Follow(NPC));
-        if(NPC.targetMinion != null) NPC.agent.SetDestination(NPC.targetMinion.transform.position);
+        NPC.coroutines.InvokeRepeating("Follow", 0f, 0.6f);
+
+
+        if (NPC.targetMinion != null)
+        {
+            if (!NPC.targetMinion.GetComponent<BaseVariables>().targetedByUnits.Contains(NPC.gameObject))
+            {
+                NPC.targetMinion.GetComponent<BaseVariables>().targetedByUnits.Add(NPC.gameObject);
+            }
+        }
+
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
-        if (NPC.targetMinion != null) NPC.agent.SetDestination(NPC.targetMinion.transform.position);
+        
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         base.OnStateExit(animator, animatorStateInfo, layerIndex);
-        //NPC.coroutines.StopCoroutine(Coroutines.Follow(NPC));
+        NPC.coroutines.CancelInvoke("Follow");
     }
+
+
+
 }

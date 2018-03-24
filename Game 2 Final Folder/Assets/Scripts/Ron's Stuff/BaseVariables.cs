@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public enum MinionSide { Black, White}
+public enum MinionType { Melee, Ranged, Healer}
 
 public class BaseVariables : MonoBehaviour
 {
     public MinionSide minionSide;
-
-    public float speed;
+    public MinionType minionType;
     public float health;
     public float damage;
+    public float speed;
     public float attackRadius;
 
     [HideInInspector] public Animator anim;
@@ -27,18 +28,20 @@ public class BaseVariables : MonoBehaviour
 
     [HideInInspector] public MonoBehaviour coroutines = null;
 
-    public List<GameObject> nearbyUnits = new List<GameObject>();
+    public List<GameObject> nearbyEnemyUnits = new List<GameObject>();
+    public List<GameObject> nearbyAllyUnits = new List<GameObject>();
+    public List<GameObject> targetedByUnits = new List<GameObject>();
 
     void Awake()
     {
-        health = Random.Range(5f, 25f);
-        damage = Random.Range(3f, 10f);
+        health = Random.Range(15f, 25f);
+        damage = Random.Range(3f, 8f);
         targetMinion = null;
         anim = GetComponentInChildren<Animator>();
         isMinionNearby = false;
         agent = GetComponentInChildren<NavMeshAgent>();
-        coroutines = GetComponent<BaseVariables>();
-
+        coroutines = GetComponent<Functions>();
+        anim.SetInteger("minionType", (int)minionType);
         waypoint[0] = GameObject.FindGameObjectWithTag("Waypoint B");
         waypoint[1] = GameObject.FindGameObjectWithTag("Waypoint W");
 

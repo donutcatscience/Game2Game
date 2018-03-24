@@ -6,9 +6,13 @@ public class Triggers : MonoBehaviour
 {
     public BaseVariables NPC;
 
+    // make a reference to a script that has all of the functions
+    public Functions functions;
+
     public virtual void Start()
     {
         if(NPC == null) NPC = gameObject.transform.root.gameObject.GetComponent<BaseVariables>();
+        functions = NPC.GetComponent<Functions>();
     }
 
 

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MinionNearbyTrigger : Triggers
 {
-
     public override void Start()
     {
         base.Start();
@@ -13,13 +12,23 @@ public class MinionNearbyTrigger : Triggers
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BaseVariables>().isDead == false)
+        // if the minion that entered our range is not dead
+        if (!other.GetComponent<BaseVariables>().isDead)
         {
-            if (other.GetComponent<BaseVariables>().minionSide != NPC.minionSide)
+            // check if the minion is not already in our list of nearby minions
+            if (!NPC.nearbyEnemyUnits.Contains(other.gameObject))
             {
-                if(!NPC.nearbyUnits.Contains(other.gameObject))
+                // is the minion not on the same side?
+                if (other.GetComponent<BaseVariables>().minionSide != NPC.minionSide)
                 {
-                    NPC.nearbyUnits.Add(other.gameObject);
+                    // add the minion to the enemy list
+                    NPC.nearbyEnemyUnits.Add(other.gameObject);
+                }
+                // otherwise the minion is on our side
+                else
+                {
+                    // add the minion to the ally list
+                    NPC.nearbyAllyUnits.Add(other.gameObject);
                 }
             }
         }
@@ -27,16 +36,31 @@ public class MinionNearbyTrigger : Triggers
 
     void OnTriggerStay(Collider other)
     {
+        functions.RemoveFromListWhenDead(NPC.nearbyEnemyUnits);
+        functions.RemoveFromListWhenDead(NPC.nearbyAllyUnits); 
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<BaseVariables>().isDead == false)
+        // if the minion that exit our range is not dead
+        if (!other.GetComponent<BaseVariables>().isDead)
         {
-            if (other.GetComponent<BaseVariables>().minionSide != NPC.minionSide)
+            // is the minion on our side?
+            if(other.GetComponent<BaseVariables>().minionSide == NPC.minionSide)
             {
-                NPC.nearbyUnits.Remove(other.gameObject);
+                // remove from ally list
+                NPC.nearbyAllyUnits.Remove(other.gameObject);
+            }
+            // otherwise the minion is not on our side
+            else
+            {
+                // remove from enemy list
+                NPC.nearbyEnemyUnits.Remove(other.gameObject);
             }
         }
     }
+
+
+
+
 }

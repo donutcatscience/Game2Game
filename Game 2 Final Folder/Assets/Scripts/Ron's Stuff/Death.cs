@@ -10,6 +10,10 @@ public class Death : FSM {
         Debug.Log("DEAD");
         NPC.targetMinion = null;
         //NPC.agent.speed = 0;
+        NPC.nearbyAllyUnits.Clear();
+        NPC.nearbyEnemyUnits.Clear();
+        NPC.targetedByUnits.Clear();
+        NPC.GetComponentInChildren<MinionNearbyTrigger>().enabled = false;
 	}
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
