@@ -1414,7 +1414,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1175515674357866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.773043, y: -3.984084e-17, z: 17.942719}
+  m_LocalPosition: {x: 248.15036, y: 2.0968456, z: 42.93584}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4178562904128150}
@@ -2018,7 +2018,7 @@ Animator:
   m_GameObject: {fileID: 1175515674357866}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 914e8d62bfda4c642a8635e346ce4d89, type: 3}
-  m_Controller: {fileID: 9100000, guid: 800e0ab27394c88438c6ca8d1d4b54a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7201842521c0c4d44ad4e349c91e1889, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2038,6 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
+  functions: {fileID: 0}
 --- !u!114 &114844037676129118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2051,22 +2052,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minionSide: 0
   minionType: 0
-  health: 15
-  damage: 5
-  speed: 7
-  attackRadius: 3
-  anim: {fileID: 0}
-  isMinionNearby: 0
+  maxHealth: 0
+  health: 0
+  damage: 0
+  speed: 0
+  meleeRadius: 0
+  targetEnemy: {fileID: 0}
+  targetAlly: {fileID: 0}
+  isEnemyNearby: 0
+  isAllyNearby: 0
   isDead: 0
+  anim: {fileID: 0}
   agent: {fileID: 0}
-  targetMinion: {fileID: 0}
+  functions: {fileID: 0}
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-  coroutines: {fileID: 0}
   nearbyEnemyUnits: []
   nearbyAllyUnits: []
-  targetedByUnits: []
+  targetedByUnits: 0
 --- !u!114 &114858239479643592
 MonoBehaviour:
   m_ObjectHideFlags: 1

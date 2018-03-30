@@ -245,14 +245,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1307266603107302, guid: c6c2522d851d0844fabf9b836d8425b1, type: 2}
-      propertyPath: m_Layer
-      value: 11
+    - target: {fileID: 114934486350309068, guid: c6c2522d851d0844fabf9b836d8425b1,
+        type: 2}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934486350309068, guid: c6c2522d851d0844fabf9b836d8425b1,
+        type: 2}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934486350309068, guid: c6c2522d851d0844fabf9b836d8425b1,
+        type: 2}
+      propertyPath: minionSide
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114934486350309068, guid: c6c2522d851d0844fabf9b836d8425b1,
         type: 2}
       propertyPath: meleeRadius
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6c2522d851d0844fabf9b836d8425b1, type: 2}
@@ -333,28 +344,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1097012400067688, guid: b9ea4c1dc41daee4fba118ac41535229, type: 2}
-      propertyPath: m_Name
-      value: W H (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 137226871476382218, guid: b9ea4c1dc41daee4fba118ac41535229,
+    - target: {fileID: 114206325783943864, guid: b9ea4c1dc41daee4fba118ac41535229,
         type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f7b1ed55d02e93b40b649426934ecb80, type: 2}
+      propertyPath: minionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206325783943864, guid: b9ea4c1dc41daee4fba118ac41535229,
+        type: 2}
+      propertyPath: minionSide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114206325783943864, guid: b9ea4c1dc41daee4fba118ac41535229,
         type: 2}
       propertyPath: speed
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114206325783943864, guid: b9ea4c1dc41daee4fba118ac41535229,
         type: 2}
       propertyPath: meleeRadius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097012400067688, guid: b9ea4c1dc41daee4fba118ac41535229, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9ea4c1dc41daee4fba118ac41535229, type: 2}
@@ -624,19 +632,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1162178849252104, guid: d7489de73cf80e549b9b98b2bad0b53a, type: 2}
-      propertyPath: m_Layer
-      value: 11
+    - target: {fileID: 114844037676129118, guid: d7489de73cf80e549b9b98b2bad0b53a,
+        type: 2}
+      propertyPath: speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114844037676129118, guid: d7489de73cf80e549b9b98b2bad0b53a,
         type: 2}
-      propertyPath: maxHealth
-      value: 27.75
+      propertyPath: health
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114844037676129118, guid: d7489de73cf80e549b9b98b2bad0b53a,
         type: 2}
       propertyPath: meleeRadius
-      value: 3.37
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7489de73cf80e549b9b98b2bad0b53a, type: 2}

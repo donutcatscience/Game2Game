@@ -13,25 +13,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: nearbyAlly
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: criticalHealth
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: FSM
@@ -74,6 +74,40 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _criticalHealth: 1615920891
+--- !u!114 &114181535279741066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1444d196f46ce54e92d2c6dfe35c515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
+--- !u!114 &114237390839513190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f701d8168ea0b4ea4e865818224a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
 --- !u!114 &114285341277500074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +134,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29d8782f2cda50d4fba5d68394fa474a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
+--- !u!114 &114627811915043210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacc9223b93ffec428ff3c1d8c535dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
@@ -758,7 +809,7 @@ AnimatorState:
   - {fileID: 1101144566309767038}
   - {fileID: 1101109295608955150}
   m_StateMachineBehaviours:
-  - {fileID: 114387280478070762}
+  - {fileID: 114237390839513190}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -784,7 +835,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 114102717411944144}
+  - {fileID: 114627811915043210}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -813,7 +864,7 @@ AnimatorState:
   - {fileID: 1101975038558963664}
   - {fileID: 1101369432472259096}
   m_StateMachineBehaviours:
-  - {fileID: 114285341277500074}
+  - {fileID: 114181535279741066}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

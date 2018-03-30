@@ -99,6 +99,40 @@ MonoBehaviour:
   _criticalHealth: 1615920891
   timer: 0
   timerRange: 1
+--- !u!114 &114143940229638728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1444d196f46ce54e92d2c6dfe35c515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
+--- !u!114 &114144974999795316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e092a9bff24ef468e68320d2040c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
 --- !u!114 &114285341277500074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +184,40 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _criticalHealth: 1615920891
+--- !u!114 &114892372325225384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f701d8168ea0b4ea4e865818224a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
+--- !u!114 &114950841008428992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacc9223b93ffec428ff3c1d8c535dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
 --- !u!114 &114963778335705768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +242,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8af9b3c80780940abc78749c27f90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114992981545371146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e71e4f420d5304f85cd0707f7a9a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 0}
+  _isDead: 1276664872
+  _nearbyEnemy: 939410329
+  _nearbyAlly: 1860974009
+  _inMeleeRange: 598454076
+  _criticalHealth: 1615920891
 --- !u!1101 &1101001843534419872
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -1097,7 +1182,7 @@ AnimatorState:
   - {fileID: 1101041708088477000}
   - {fileID: 1101144566309767038}
   m_StateMachineBehaviours:
-  - {fileID: 114864380464647010}
+  - {fileID: 114892372325225384}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1127,7 +1212,7 @@ AnimatorState:
   - {fileID: 1101504458311764842}
   - {fileID: 1101571782183224646}
   m_StateMachineBehaviours:
-  - {fileID: 114401510871460516}
+  - {fileID: 114144974999795316}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1153,7 +1238,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 114102717411944144}
+  - {fileID: 114950841008428992}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1182,7 +1267,7 @@ AnimatorState:
   - {fileID: 1101975038558963664}
   - {fileID: 1101037043784039566}
   m_StateMachineBehaviours:
-  - {fileID: 114285341277500074}
+  - {fileID: 114143940229638728}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1237,7 +1322,7 @@ AnimatorState:
   - {fileID: 1101888188934191974}
   - {fileID: 1101261645221361280}
   m_StateMachineBehaviours:
-  - {fileID: 114120228199214500}
+  - {fileID: 114992981545371146}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

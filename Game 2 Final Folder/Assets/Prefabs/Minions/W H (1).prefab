@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 4655398748880804}
   - component: {fileID: 135431848511664128}
   - component: {fileID: 114085422734127260}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Sphere of Influence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,7 +1105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097012400067688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.5, y: 1.654541, z: 65.37}
+  m_LocalPosition: {x: 243.1, y: 0.55, z: 100.36}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4569809093859682}
@@ -2079,13 +2079,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa278f3155fd2a41a9ca20974312d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minionSide: 1
-  minionType: 2
+  minionSide: 0
+  minionType: 0
   maxHealth: 0
-  health: 50
-  damage: 10
-  speed: 7
-  meleeRadius: 3
+  health: 0
+  damage: 0
+  speed: 0
+  meleeRadius: 0
   targetEnemy: {fileID: 0}
   targetAlly: {fileID: 0}
   isEnemyNearby: 0
@@ -2139,7 +2139,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4dae24234f6c500459124ebc45336e45, type: 2}
+  - {fileID: 2100000, guid: f7b1ed55d02e93b40b649426934ecb80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
