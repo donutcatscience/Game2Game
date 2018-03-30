@@ -7,7 +7,7 @@ public class AttackTrigger : Triggers
     public override void Start()
     {
         base.Start();
-        gameObject.GetComponent<SphereCollider>().radius = NPC.attackRadius;
+        gameObject.GetComponent<SphereCollider>().radius = NPC.meleeRadius;
     }
 
     void OnTriggerEnter(Collider other)

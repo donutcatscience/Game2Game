@@ -12,7 +12,7 @@ public class Triggers : MonoBehaviour
     public virtual void Start()
     {
         if(NPC == null) NPC = gameObject.transform.root.gameObject.GetComponent<BaseVariables>();
-        functions = NPC.GetComponent<Functions>();
+        if(functions == null) functions = NPC.GetComponent<Functions>();
     }
 
 

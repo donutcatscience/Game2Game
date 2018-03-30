@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 6c46bab1c0fe2f04985858075d58c9bc
+timeCreated: 1521870222
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: arm_L
+    100002: arm_R
+    100004: Armature
+    100006: Bone
+    100008: chest
+    100010: eyebrow1_L
+    100012: eyebrow1_R
+    100014: eyebrow2_L
+    100016: eyebrow2_R
+    100018: foot_L
+    100020: foot_R
+    100022: head
+    100024: hip
+    100026: hip_L
+    100028: hip_R
+    100030: indexf1_L
+    100032: indexf1_R
+    100034: indexf2_L
+    100036: indexf2_R
+    100038: indexf3_L
+    100040: indexf3_R
+    100042: jaws
+    100044: leg1_L
+    100046: leg1_R
+    100048: leg2_L
+    100050: leg2_R
+    100052: master
+    100054: Plane
+    100056: Rock_2
+    100058: //RootNode
+    100060: shoulder_L
+    100062: shoulder_R
+    100064: spine
+    100066: stone
+    100068: thumb1_L
+    100070: thumb1_R
+    100072: thumb2_L
+    100074: thumb2_R
+    100076: Thumb3_L
+    100078: Thumb3_R
+    100080: upperhand_L
+    100082: upperhand_R
+    100084: Weapon_L
+    100086: Weapon_R
+    100088: widef1_L
+    100090: widef1_R
+    100092: widef2_L
+    100094: widef2_R
+    100096: widef3_L
+    100098: widef3_R
+    400000: arm_L
+    400002: arm_R
+    400004: Armature
+    400006: Bone
+    400008: chest
+    400010: eyebrow1_L
+    400012: eyebrow1_R
+    400014: eyebrow2_L
+    400016: eyebrow2_R
+    400018: foot_L
+    400020: foot_R
+    400022: head
+    400024: hip
+    400026: hip_L
+    400028: hip_R
+    400030: indexf1_L
+    400032: indexf1_R
+    400034: indexf2_L
+    400036: indexf2_R
+    400038: indexf3_L
+    400040: indexf3_R
+    400042: jaws
+    400044: leg1_L
+    400046: leg1_R
+    400048: leg2_L
+    400050: leg2_R
+    400052: master
+    400054: Plane
+    400056: Rock_2
+    400058: //RootNode
+    400060: shoulder_L
+    400062: shoulder_R
+    400064: spine
+    400066: stone
+    400068: thumb1_L
+    400070: thumb1_R
+    400072: thumb2_L
+    400074: thumb2_R
+    400076: Thumb3_L
+    400078: Thumb3_R
+    400080: upperhand_L
+    400082: upperhand_R
+    400084: Weapon_L
+    400086: Weapon_R
+    400088: widef1_L
+    400090: widef1_R
+    400092: widef2_L
+    400094: widef2_R
+    400096: widef3_L
+    400098: widef3_R
+    2100000: floor
+    2100002: Golem_mat__Untitled
+    2100004: Golem_mat__GolemTex_V4
+    2100006: Rock_mat
+    2300000: Plane
+    3300000: Plane
+    4300000: Plane
+    4300002: stone
+    4300004: Rock_2
+    7400000: Default Take
+    7400002: Attack1
+    7400004: Attack2
+    7400006: Death
+    7400008: Hurt1
+    7400010: Hurt2
+    7400012: Hurt3
+    7400014: Idle
+    7400016: Run
+    7400018: Sleep_End
+    7400020: Sleep_Idle
+    7400022: Sleep_Start
+    7400024: Throw_Rock
+    7400026: Throw_Rock2
+    7400028: Walk
+    9500000: //RootNode
+    13700000: Rock_2
+    13700002: stone
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Golem_mat__GolemTex_V4
+    second: {fileID: 2100000, guid: 31b2c4fb6bea45b41a1a78c6a436ac3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Golem_mat__Untitled
+    second: {fileID: 2100000, guid: 685e08b8ed5ddab4288fdeb9eb337f0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_mat
+    second: {fileID: 2100000, guid: b49571e9117a2d44595b9a0482b029a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: 1e24a04a64c52e546b42af1f9467d2f8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,17 +15,21 @@ public class MinionNearbyTrigger : Triggers
         // if the minion that entered our range is not dead
         if (!other.GetComponent<BaseVariables>().isDead)
         {
-            // check if the minion is not already in our list of nearby minions
-            if (!NPC.nearbyEnemyUnits.Contains(other.gameObject))
+            // is the minion not on the same side?
+            if (other.GetComponent<BaseVariables>().minionSide != NPC.minionSide)
             {
-                // is the minion not on the same side?
-                if (other.GetComponent<BaseVariables>().minionSide != NPC.minionSide)
+                // check if the minion is not already in our list of nearby enemies
+                if (!NPC.nearbyEnemyUnits.Contains(other.gameObject))
                 {
                     // add the minion to the enemy list
                     NPC.nearbyEnemyUnits.Add(other.gameObject);
                 }
-                // otherwise the minion is on our side
-                else
+            }
+            // otherwise the minion is on our side
+            else
+            {
+                // check if the minion is not already in our list of nearby allies
+                if (!NPC.nearbyAllyUnits.Contains(other.gameObject))
                 {
                     // add the minion to the ally list
                     NPC.nearbyAllyUnits.Add(other.gameObject);
