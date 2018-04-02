@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Pick Up
   - Ground
+  - Waypoint B
+  - Waypoint W
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Ground
   - Floor
-  - 
-  - 
+  - SphereOfInfluence
+  - Minion
   - 
   - 
   - 
