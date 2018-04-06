@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        InvokeRepeating("TerrainHugging", 0.0f, 0.0005f);
+        //InvokeRepeating("TerrainHugging", 0.0f, 0.0005f);
     }
     void Move(float h, float v)
     {
