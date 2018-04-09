@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed = 9f;
-    Vector3 movement;
+    float movement;
     Rigidbody playerRigidbody;
     int floorMask;
     float camRayLength = 100f;
@@ -46,13 +46,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        InvokeRepeating("TerrainHugging", 0.0f, 0.0005f);
+        InvokeRepeating("TerrainHugging", 0.0f, 0.05f);
     }
     void Move(float h, float v)
     {
-        movement.Set(h, 0, v);
-        movement = movement.normalized * speed * Time.deltaTime * GetComponent<RunSpeedIncrease>().bonusRunSpeed;
-        playerRigidbody.MovePosition(transform.position + movement);
+        //movement.Set(h, 0, v);
+        movement = speed * Time.deltaTime * GetComponent<RunSpeedIncrease>().bonusRunSpeed;
+        //playerRigidbody.MovePosition(transform.position + movement);
+        gameObject.transform.Translate(h*movement, 0f, v*movement);
     }
 
     void Turning()
