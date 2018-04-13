@@ -166,11 +166,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+			if (jump && !crouch)
 			{
-				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
+                // jump!
+                m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+                //m_Rigidbody.position = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.position.y - m_JumpPower, m_Rigidbody.position.z);
+                GetComponent<ThirdPersonCharacter>().m_GravityMultiplier = 0;
+                m_IsGrounded = false;
 				m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
 			}
