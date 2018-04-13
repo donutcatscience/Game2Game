@@ -24,5 +24,6 @@ public class ObjectHover : MonoBehaviour {
         transform.position = orbit;
         transform.RotateAround(Object.transform.position, new Vector3(0.0f, 1.0f, 0.0f), speed * Time.deltaTime);
         transform.forward = (Object.transform.position - transform.position);
+        transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
     }
 }
