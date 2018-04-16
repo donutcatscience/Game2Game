@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Waypoint B
   - Waypoint W
+  - Enemy Projectile
   layers:
   - Default
   - TransparentFX
