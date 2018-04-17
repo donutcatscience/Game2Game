@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
   m_Fog: 1
-  m_FogColor: {r: 0.52205884, g: 0.25719076, b: 0.25719076, a: 1}
+  m_FogColor: {r: 0.5147059, g: 0.38602942, b: 0.38602942, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.002
+  m_FogDensity: 0.03
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.022058845, g: 0.0014597765, b: 0.0070002195, a: 1}
@@ -864,31 +864,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 975.85443
+      value: 974.9385
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.534714
+      value: 11.927158
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 35.001335
+      value: 51.322662
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.30255058
+      value: -0.025804134
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.052263997
+      value: -0.014398106
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.016615331
+      value: 0.00037172626
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9515543
+      value: -0.9995633
       objectReference: {fileID: 0}
     - target: {fileID: 4874641217499074, guid: acf06417a9fcdde478dc2e46946cb22b, type: 2}
       propertyPath: m_RootOrder
