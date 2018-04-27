@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+/*
 public class Functions : MonoBehaviour
 {
     public BaseVariables NPC;
@@ -23,25 +23,25 @@ public class Functions : MonoBehaviour
     /// Removes dead minions from the list of minion references that is passed in
     /// </summary>
     /// <param name="list"></param>
-    public void RemoveFromListWhenDead(List<GameObject> list)
+    public void RemoveFromListWhenDead(List<BaseVariables> list)
     {
-        foreach (GameObject minion in list.ToList())
+        foreach (BaseVariables minion in list.ToList())
         {
-            if (minion.GetComponent<BaseVariables>().isDead)
+            if (minion.isDead)
             {
                 list.Remove(minion);
             }
         }
     }
 
-    public void OrderByDistance(List<GameObject> list)
+    public void OrderByDistance(List<BaseVariables> list)
     {
         // we only need to sort the order if there are more than 2 units in the list
         if (list.Count >= 2)
         {
             // sorting algorithm
             print("sorting list");
-            list.Sort(delegate (GameObject c1, GameObject c2)
+            list.Sort(delegate (BaseVariables c1, BaseVariables c2)
             {
                 return Vector3.Distance(transform.position, c1.transform.position).CompareTo((Vector3.Distance(transform.position, c2.transform.position)));
             });
@@ -60,6 +60,7 @@ public class Functions : MonoBehaviour
 
     public void Attack()
     {
+        if (NPC.targetEnemy == null) return;
         NPC.targetEnemy.GetComponent<BaseVariables>().health -= NPC.damage;
         Debug.Log("Attack");
     }
@@ -81,13 +82,13 @@ public class Functions : MonoBehaviour
             return;
         }
         // find average vector3 between all nearby allies
-        foreach (GameObject minion in NPC.nearbyAllyUnits)
+        foreach (BaseVariables minion in NPC.nearbyAllyUnits)
         {
             // accumulate all locations of allies
             center += minion.transform.position;
         }
         // consider each enemy in range
-        foreach (GameObject minion in NPC.nearbyEnemyUnits)
+        foreach (BaseVariables minion in NPC.nearbyEnemyUnits)
         {
             // calculate a position behind the player that lines up with the direction from this minion to the enemy unit
             Vector3 temp = NPC.transform.position + ((minion.transform.position - NPC.transform.position).normalized * -3);
@@ -99,3 +100,4 @@ public class Functions : MonoBehaviour
         NPC.agent.SetDestination(center);
     }
 }
+*/

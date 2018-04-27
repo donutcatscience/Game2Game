@@ -12,8 +12,8 @@ public class Patrol : FSM
         // set patrol speed
         NPC.agent.speed = NPC.speed*0.5f;
         // set destination
-        if (NPC.minionType == MinionType.Melee) NPC.agent.SetDestination(NPC.waypoint[NPC.minionSide == MinionSide.White ? 1 : 0].transform.position);
-        else if (NPC.minionType == MinionType.Healer) NPC.functions.InvokeRepeating("HealerDestination",0f,0.3f);
+        if (NPC.minionType != MinionType.Healer) NPC.agent.SetDestination(NPC.waypoint[NPC.minionSide == MinionSide.White ? 1 : 0].transform.position);
+        else if(!NPC.IsInvoking("HealerDestination"))NPC.InvokeRepeating("HealerDestination",0f,0.3f);
         
     }
     #endregion
@@ -25,7 +25,7 @@ public class Patrol : FSM
         if (NPC.agent.isPathStale || !NPC.agent.hasPath || NPC.agent.pathStatus != NavMeshPathStatus.PathComplete)
         {
             Debug.Log(NPC.name + ": Path is stale; recalculating...");
-            if (NPC.minionType == MinionType.Melee) NPC.agent.SetDestination(NPC.waypoint[NPC.minionSide == MinionSide.White ? 1 : 0].transform.position);
+            if (NPC.minionType != MinionType.Healer) NPC.agent.SetDestination(NPC.waypoint[NPC.minionSide == MinionSide.White ? 1 : 0].transform.position);
         }
         #endregion
     }
@@ -34,7 +34,7 @@ public class Patrol : FSM
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         base.OnStateExit(animator, animatorStateInfo, layerIndex);
-        NPC.functions.CancelInvoke("HealerDestination");
+        if(NPC.IsInvoking("HealerDestination"))NPC.CancelInvoke("HealerDestination");
     }
     #endregion
 }
