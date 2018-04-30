@@ -2038,7 +2038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  functions: {fileID: 0}
 --- !u!114 &114844037676129118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2062,15 +2061,22 @@ MonoBehaviour:
   isEnemyNearby: 0
   isAllyNearby: 0
   isDead: 0
+  capturingObj: 0
+  criticalHealth: 0
+  inMeleeRange: 0
+  atDestination: 0
   anim: {fileID: 0}
   agent: {fileID: 0}
-  functions: {fileID: 0}
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
+  rend: {fileID: 0}
+  cannon: {fileID: 0}
+  sphere: {fileID: 0}
   nearbyEnemyUnits: []
   nearbyAllyUnits: []
-  targetedByUnits: 0
+  prefabToSpawn: {fileID: 1569857751851562, guid: 6aed26141af09e947b205c6639119b90,
+    type: 2}
 --- !u!114 &114858239479643592
 MonoBehaviour:
   m_ObjectHideFlags: 1

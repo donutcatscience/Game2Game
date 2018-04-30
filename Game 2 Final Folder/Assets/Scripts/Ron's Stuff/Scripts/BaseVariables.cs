@@ -65,7 +65,8 @@ public class BaseVariables : MonoBehaviour
     // each minion will need to be aware if they are being targeted by other enemy minions
     //public int targetedByUnits;
 
-
+    //grabs object to spawn on enemy death
+    public GameObject prefabToSpawn;
 
 
 
@@ -227,7 +228,10 @@ public class BaseVariables : MonoBehaviour
     void Death()
     {
         NewSpawningCode.minionAmount--;
-        // put the code for summoning resources here
+        float xpos = transform.position.x;
+        float zpos = transform.position.z;
+        float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(xpos, 0, zpos)) + 0.85f;
+        Object instanceObj = Instantiate(prefabToSpawn, new Vector3(xpos, ypos, zpos), Quaternion.identity);
 
 
         print("SIZE: " + NewSpawningCode.minionAmount);
