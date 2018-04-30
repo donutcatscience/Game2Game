@@ -821,11 +821,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4918387258097606, guid: 41e11a966106f814cb312f34cc4cdc3c,
     type: 2}
   m_PrefabInternal: {fileID: 172425081}
---- !u!198 &1231064290 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198894846378391824, guid: 41e11a966106f814cb312f34cc4cdc3c,
-    type: 2}
-  m_PrefabInternal: {fileID: 172425081}
 --- !u!114 &1231064291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +998,7 @@ MonoBehaviour:
   sphere: {fileID: 1954703600}
   nearbyEnemyUnits: []
   nearbyAllyUnits: []
+  prefabToSpawn: {fileID: 0}
 --- !u!143 &1355132677
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1050,7 +1046,7 @@ MonoBehaviour:
   shield: {fileID: 588850478}
   playerBody: {fileID: 1355132675}
   variables: {fileID: 1355132676}
-  pc: {fileID: 1231064290}
+  pc: {fileID: 0}
 --- !u!1001 &1378430303
 Prefab:
   m_ObjectHideFlags: 0
