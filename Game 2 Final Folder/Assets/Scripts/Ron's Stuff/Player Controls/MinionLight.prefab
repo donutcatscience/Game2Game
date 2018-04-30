@@ -382,9 +382,9 @@ GameObject:
   - component: {fileID: 4846277658815676}
   - component: {fileID: 95298422910652508}
   - component: {fileID: 114737485285802368}
-  - component: {fileID: 195168064195528324}
   - component: {fileID: 136652808675760100}
   - component: {fileID: 54721930375161610}
+  - component: {fileID: 195947853182700644}
   m_Layer: 11
   m_Name: MinionLight
   m_TagString: Untagged
@@ -851,7 +851,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533108516239038}
-  m_LocalRotation: {x: -0.11875088, y: -0.6770272, z: -0.1354773, w: 0.71356726}
+  m_LocalRotation: {x: -0.118750885, y: -0.6770273, z: -0.13547732, w: 0.7135673}
   m_LocalPosition: {x: -0.34108126, y: -0.00000027567148, z: -0.00000004656613}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children: []
@@ -1006,7 +1006,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677275059933244}
-  m_LocalRotation: {x: 0.68225855, y: 0.6822583, z: -0.18580507, w: -0.18580498}
+  m_LocalRotation: {x: 0.6822585, y: 0.68225825, z: -0.18580505, w: -0.18580496}
   m_LocalPosition: {x: -1.0303488, y: -0.8995278, z: -0.3508535}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -1407,7 +1407,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413108702366442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 240.8, y: 5.6, z: 35.19}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4175159723752496}
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   inMeleeRange: 0
   atDestination: 0
   anim: {fileID: 95298422910652508}
-  agent: {fileID: 195168064195528324}
+  agent: {fileID: 195947853182700644}
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
@@ -1835,7 +1835,7 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.2119557, y: -0.000009894371, z: 2.204516}
     m_Extent: {x: 3.5101018, y: 3.0183167, z: 2.3856587}
   m_DirtyAABB: 0
---- !u!195 &195168064195528324
+--- !u!195 &195947853182700644
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
