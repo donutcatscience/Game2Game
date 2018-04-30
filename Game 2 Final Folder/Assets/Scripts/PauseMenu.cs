@@ -26,6 +26,8 @@ public class PauseMenu : MonoBehaviour {
             else Time.timeScale = 1f;
 
 
+
+                //Cursor.lockState = CursorLockMode.None;
         }
 
     }
