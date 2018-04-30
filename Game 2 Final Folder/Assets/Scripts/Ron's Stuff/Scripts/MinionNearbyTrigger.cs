@@ -12,11 +12,12 @@ public class MinionNearbyTrigger : Triggers
     public override void Start()
     {
         base.Start();
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
-
+        print("collision");
         minion = other.GetComponent<BaseVariables>();
         // if the minion that entered our range is not dead
         if (!minion.isDead)

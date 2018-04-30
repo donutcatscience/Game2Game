@@ -10,23 +10,21 @@ public class PauseMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
         file = new Save();
+        pauseCanvas.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (pausetoggle)
-            {
-                pausetoggle = false;
-            }
-            else
-            {
-                pausetoggle = true;
-            }
+            pausetoggle = !pausetoggle;
 
-            Cursor.visible = true;
-            pauseCanvas.SetActive(pausetoggle); 
+            Cursor.visible = !Cursor.visible;
+            pauseCanvas.SetActive(pausetoggle);
+
+            if (pausetoggle) Time.timeScale = 0f;
+            else Time.timeScale = 1f;
+
 
         }
 

@@ -197,15 +197,6 @@ public class Movement : MonoBehaviour
         }
         #endregion
 
-        #region hit escape
-        // unlock the mouse when esc is pressed
-        if (Input.GetKeyDown("escape"))
-        {
-            if (Cursor.lockState == CursorLockMode.Locked)
-                Cursor.lockState = CursorLockMode.None;
-            else Cursor.lockState = CursorLockMode.Locked;
-        }
-        #endregion
 
         #region camera noise
         // apply noise to the x,y,z angles of the camera

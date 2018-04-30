@@ -11,14 +11,22 @@ public class Save : MonoBehaviour {
 
     public int gameDayNum = 0;
     public int resourceCount = 0;
-    // Use this for initialization
+
+    // Declares 2 lists for good and bad days.
+    static List<int> Gdays;
+    static List<int> Bdays;
+
+    // Use this for initialization.
     void Start () {
-		
-	}
+        Gdays = new List<int>();
+        Bdays = new List<int>();
+    }
 	
-	// Update is called once per frame
-	void Update () {
-    
+	// Retrieving the values of the lists from FadingLoadingScenes script and setting it to local variables within this script.
+	public void updateDays(List<int> good, List<int> bad)
+    {
+        Gdays = good;
+        Bdays = bad;
     }
     public void saveIt()
     {
@@ -33,6 +41,11 @@ public class Save : MonoBehaviour {
         gameData game = new gameData();
         game.gameDay = gameDayNum;
         game.resourceCounter = resourceCount;
+
+        // Saves bad and good days used/images enabled.
+        game.usedBads = Bdays;
+        game.goodUsed = Gdays;
+
         bf.Serialize(file, game);
         file.Close();
     }
@@ -51,13 +64,32 @@ public class Save : MonoBehaviour {
 
             gameDayNum = game.gameDay;
             resourceCount = game.resourceCounter;
+
+            // Loading good and bad days used/images enabled.
+            Gdays = game.goodUsed;
+            Bdays = game.usedBads;
         }
     }
 
+    // Returns the lists of good and bad days enabled.
+    // In the FadingLoadingScenes script we'll be pulling from these methods to load data previously saved.
+    public List<int> loadGoodDays()
+    {
+        return Gdays;
+    }
+
+    public List<int> loadBadDays()
+    {
+        return Bdays;
+    }
+
     [Serializable]
-    class gameData
+    public class gameData
     {
         public int gameDay;
         public int resourceCounter;
+
+        public List<int> usedBads = new List<int>();
+        public List<int> goodUsed = new List<int>();
     }
 }

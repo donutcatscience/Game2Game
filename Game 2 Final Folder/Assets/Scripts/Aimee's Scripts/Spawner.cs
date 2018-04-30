@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
         AttackerMove attacker = attackerGameObject.GetComponent<AttackerMove>();
 
         // Retrieving the variable "seenEverSeconds" (which we can designate how often a minion appears)
-        float meanSpawnDelay = attacker.seenEverySeconds;
+        float meanSpawnDelay = 0f;
         float spawnsPerSecond = 1 / meanSpawnDelay;
 
         if(Time.deltaTime > meanSpawnDelay)

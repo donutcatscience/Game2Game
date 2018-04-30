@@ -7,6 +7,16 @@ public class ProjHit : MonoBehaviour {
 
     public MinionSide side;
 
+    float time = 0f;
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if(time >= 3f)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,7 +28,5 @@ public class ProjHit : MonoBehaviour {
                 other.GetComponent<BaseVariables>().health -= 50f;
             }
         }
-        else print("hit ground");
-        Destroy(gameObject);
     }
 }

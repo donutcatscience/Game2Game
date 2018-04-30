@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class SpawningMechanism : MonoBehaviour
 {
     private bool canSpawn;
@@ -65,7 +65,8 @@ public class SpawningMechanism : MonoBehaviour
         BaseVariables minion = Instantiate(minionPrefab);
         minion.minionType = type;
         minion.minionSide = side;
-        minion.transform.position = transform.position + new Vector3(count, 0, 0);
+        minion.transform.position += new Vector3(count, 0, 0);
     }
 
 }
+*/

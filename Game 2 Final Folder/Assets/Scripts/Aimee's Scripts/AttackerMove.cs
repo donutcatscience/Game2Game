@@ -7,8 +7,7 @@ public class AttackerMove : MonoBehaviour
     [Range(-1f, 1f)]
     public float walkSpeed;
 
-    [Tooltip ("Average number of seconds btwn appearances")]
-    public float seenEverySeconds;
+
 
     // Use this for initialization
     void Start()

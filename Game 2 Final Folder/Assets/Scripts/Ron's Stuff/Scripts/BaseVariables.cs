@@ -54,7 +54,7 @@ public class BaseVariables : MonoBehaviour
 
     public Transform cannon;
 
-    public GameManager manager;
+    GameManager manager;
 
     public SphereCollider sphere;
 
@@ -86,7 +86,7 @@ public class BaseVariables : MonoBehaviour
         // assign waypoints
         waypoint[0] = GameObject.FindGameObjectWithTag("Waypoint B");
         waypoint[1] = GameObject.FindGameObjectWithTag("Waypoint W");
-
+        manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         if (minionType != MinionType.Player)
         {
