@@ -13,31 +13,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: nearbyAlly
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: criticalHealth
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: inMeleeRange
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: atDestination
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: FSM
@@ -92,10 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  _isDead: 1276664872
   _nearbyEnemy: 939410329
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
+  _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!114 &114285341277500074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,10 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPC: {fileID: 0}
-  _isDead: 1276664872
   _nearbyEnemy: 939410329
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
+  _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!114 &114963778335705768
 MonoBehaviour:
   m_ObjectHideFlags: 1

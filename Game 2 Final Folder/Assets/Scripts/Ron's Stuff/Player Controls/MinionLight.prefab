@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 195168064195528324}
   - component: {fileID: 136652808675760100}
   - component: {fileID: 54721930375161610}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: MinionLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 4504021271645764}
   - component: {fileID: 135647082857895722}
   - component: {fileID: 114028782954784640}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533108516239038}
-  m_LocalRotation: {x: -0.11875089, y: -0.6770273, z: -0.13547732, w: 0.7135673}
+  m_LocalRotation: {x: -0.11875088, y: -0.6770272, z: -0.1354773, w: 0.71356726}
   m_LocalPosition: {x: -0.34108126, y: -0.00000027567148, z: -0.00000004656613}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children: []
@@ -1006,7 +1006,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677275059933244}
-  m_LocalRotation: {x: 0.6822585, y: 0.68225825, z: -0.18580505, w: -0.18580496}
+  m_LocalRotation: {x: 0.68225855, y: 0.6822583, z: -0.18580507, w: -0.18580498}
   m_LocalPosition: {x: -1.0303488, y: -0.8995278, z: -0.3508535}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -1407,7 +1407,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413108702366442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 240.8, y: 5.6, z: 60.4}
+  m_LocalPosition: {x: 240.8, y: 5.6, z: 35.19}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4175159723752496}
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionSide: 0
-  minionType: 1
+  minionType: 0
   maxHealth: 50
   health: 50
   damage: 10
@@ -1598,19 +1598,18 @@ MonoBehaviour:
   capturingObj: 0
   criticalHealth: 0
   inMeleeRange: 0
-  anim: {fileID: 0}
-  agent: {fileID: 0}
+  atDestination: 0
+  anim: {fileID: 95298422910652508}
+  agent: {fileID: 195168064195528324}
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-  rend: {fileID: 0}
+  rend: {fileID: 137650091765862010}
   cannon: {fileID: 4456055253175828}
+  manager: {fileID: 114354294553255200, guid: 6472d26c4dd30ee408ca464be46cf9a5, type: 2}
+  sphere: {fileID: 135647082857895722}
   nearbyEnemyUnits: []
   nearbyAllyUnits: []
-  animCont:
-  - {fileID: 9100000, guid: 7201842521c0c4d44ad4e349c91e1889, type: 2}
-  - {fileID: 9100000, guid: 02d08e05b20f71640a8229a905827da6, type: 2}
-  - {fileID: 9100000, guid: 07db2497c0405164893d3a8e7f4c06c3, type: 2}
 --- !u!114 &114797960995574296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1647,12 +1646,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413108702366442}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2.49
-  m_Height: 7.74
+  m_Radius: 2.43
+  m_Height: 12.49
   m_Direction: 1
-  m_Center: {x: 0, y: 2.77, z: 0.53}
+  m_Center: {x: 0, y: 3.66, z: 0.53}
 --- !u!137 &137173321145988866
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1846,14 +1845,14 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2.83
   m_Speed: 6.63
-  m_Acceleration: 100
+  m_Acceleration: 1000
   avoidancePriority: 50
   m_AngularSpeed: 1200
-  m_StoppingDistance: 0.01
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.41
+  m_Height: 2.02
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

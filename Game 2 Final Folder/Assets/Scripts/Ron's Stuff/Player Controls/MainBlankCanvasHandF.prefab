@@ -736,7 +736,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -859,6 +859,7 @@ MonoBehaviour:
   capturingObj: 0
   criticalHealth: 0
   inMeleeRange: 0
+  atDestination: 0
   anim: {fileID: 0}
   agent: {fileID: 0}
   waypoint:
@@ -866,9 +867,10 @@ MonoBehaviour:
   - {fileID: 0}
   rend: {fileID: 0}
   cannon: {fileID: 4871278506479608}
+  manager: {fileID: 0}
+  sphere: {fileID: 0}
   nearbyEnemyUnits: []
   nearbyAllyUnits: []
-  animCont: []
 --- !u!114 &114733589115329980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -892,8 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3897febc27ab54584a5210ffc067bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   normalSpeed: 10
+  speed: 10
   mode: 0
   healingArea: 15
   utilitySpeed: 25

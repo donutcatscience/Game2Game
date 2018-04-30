@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1410731266366612}
+  m_IsPrefabParent: 1
+--- !u!1 &1410731266366612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4210254437103268}
+  - component: {fileID: 114354294553255200}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4210254437103268
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410731266366612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 240.51465, y: 9.157226, z: 62.627724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114354294553255200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410731266366612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aee504d01d36d4b84cb66f21aa89c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tex:
+  - {fileID: 2800000, guid: a4f8ce5c17a5e8440a754188e0a552db, type: 3}
+  - {fileID: 2800000, guid: 03dd20fde1a38b14dbe4af388f9c0176, type: 3}
+  - {fileID: 2800000, guid: 2783c28e31a7f774cbe6c0aed2b88694, type: 3}
+  - {fileID: 2800000, guid: 15060a07e35d4bf42b5e05eea3de9a1b, type: 3}
+  - {fileID: 2800000, guid: 9e04a67255ba05741a24f501de322367, type: 3}
+  - {fileID: 2800000, guid: 7edfaca6ff46ba64a973daadac671f6b, type: 3}
+  animCont:
+  - {fileID: 9100000, guid: 7201842521c0c4d44ad4e349c91e1889, type: 2}
+  - {fileID: 9100000, guid: 07db2497c0405164893d3a8e7f4c06c3, type: 2}
+  - {fileID: 9100000, guid: 02d08e05b20f71640a8229a905827da6, type: 2}
+  maxHealth: 320000003200000032000000
+  damage: 0a0000000a0000000a000000
+  speed:
+  - 16
+  - 14
+  - 18
+  meleeRadius:
+  - 5
+  - 50
+  - 0
+  sphereRadius:
+  - 30
+  - 60
+  - 35

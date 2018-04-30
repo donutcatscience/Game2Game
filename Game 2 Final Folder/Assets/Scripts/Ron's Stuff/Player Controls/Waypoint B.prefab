@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4207693698154130}
   - component: {fileID: 33741762936518236}
   - component: {fileID: 23347565087092208}
-  - component: {fileID: 114463644576084954}
+  - component: {fileID: 114118422524648438}
   m_Layer: 0
   m_Name: Waypoint B
   m_TagString: Untagged
@@ -83,21 +83,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1557080417453212}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114463644576084954
+--- !u!114 &114118422524648438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1557080417453212}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02cd68c2e75ecef47a89874609489087, type: 3}
+  m_Script: {fileID: 11500000, guid: d471b60c4dc09c54aa8b3b48d6c36614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countMult: 10
-  spawnDelay: 20
-  minionPrefab:
-  - {fileID: 114934486350309068, guid: c6c2522d851d0844fabf9b836d8425b1, type: 2}
-  - {fileID: 114844037676129118, guid: d7489de73cf80e549b9b98b2bad0b53a, type: 2}
-  side: 1
-  lengths: 010000000100000001000000
+  countMult: 0
+  spawnDelay: 0
+  minionPrefab: {fileID: 0}
+  side: 0
+  lengths: 000000000000000000000000
