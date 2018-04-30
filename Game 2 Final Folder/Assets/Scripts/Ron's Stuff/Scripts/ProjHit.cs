@@ -6,8 +6,16 @@ public class ProjHit : MonoBehaviour {
 
 
     public MinionSide side;
+    public AudioClip hitEnemy;
+
+    private AudioSource source;
 
     float time = 0f;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -25,7 +33,8 @@ public class ProjHit : MonoBehaviour {
             if (other.GetComponent<BaseVariables>().minionSide != side)
             {
                 print("hit minion");
-                other.GetComponent<BaseVariables>().health -= 50f;
+                source.PlayOneShot(hitEnemy);
+                other.GetComponent<BaseVariables>().health -= 25f;
             }
         }
     }

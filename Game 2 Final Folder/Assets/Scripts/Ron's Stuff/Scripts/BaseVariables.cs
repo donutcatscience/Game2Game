@@ -68,12 +68,16 @@ public class BaseVariables : MonoBehaviour
     //grabs object to spawn on enemy death
     public GameObject prefabToSpawn;
 
-    public AudioClip minionDeath;
+    //variables for player death sounds
+    public AudioClip minionDeathSound;
+    private AudioSource source;
 
     #endregion
 
     void Start()
     {
+        //set source of NPC sounds
+        source = GetComponent<AudioSource>();
 
         // minion will not be targeting any minions at the start
         targetEnemy = null;
@@ -242,8 +246,7 @@ public class BaseVariables : MonoBehaviour
 
     void DeathSound()
     {
-        // play death sound of minion
-        GetComponent<AudioSource>().PlayOneShot(minionDeath);
+        source.PlayOneShot(minionDeathSound);
     }
 
     #endregion

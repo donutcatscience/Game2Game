@@ -1,11 +1,20 @@
 fileFormatVersion: 2
 guid: 1fa278f3155fd2a41a9ca20974312d4f
-timeCreated: 1521229782
+timeCreated: 1525122541
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - targetEnemy: {instanceID: 0}
+  - targetAlly: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - agent: {instanceID: 0}
+  - rend: {instanceID: 0}
+  - cannon: {instanceID: 0}
+  - sphere: {instanceID: 0}
+  - prefabToSpawn: {instanceID: 0}
+  - minionDeathSound: {fileID: 8300000, guid: 2a29c49a88a6c7e418086de0a8768d51, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
