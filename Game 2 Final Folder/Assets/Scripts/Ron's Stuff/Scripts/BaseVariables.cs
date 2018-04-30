@@ -228,10 +228,15 @@ public class BaseVariables : MonoBehaviour
     void Death()
     {
         NewSpawningCode.minionAmount--;
+<<<<<<< HEAD
+
+        // put the code for summoning resources here
+=======
         float xpos = transform.position.x;
         float zpos = transform.position.z;
         float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(xpos, 0, zpos)) + 0.85f;
         Object instanceObj = Instantiate(prefabToSpawn, new Vector3(xpos, ypos, zpos), Quaternion.identity);
+>>>>>>> c55fb37880dab4328073a72d7a828b6fd04db17c
 
 
         print("SIZE: " + NewSpawningCode.minionAmount);
