@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
         // set gravity
         vspeed = -9.8f * Time.deltaTime;
 
-        gemCount = 500;
+        gemCount = 20;
         gem = LayerMask.NameToLayer("Gem");
     }
 
