@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
 
 
         // print noise increments
-        print(increment[0] + " " + increment[1] + " " + increment[2]);
+        //print(increment[0] + " " + increment[1] + " " + increment[2]);
 
         // set gravity
         vspeed = -9.8f * Time.deltaTime;

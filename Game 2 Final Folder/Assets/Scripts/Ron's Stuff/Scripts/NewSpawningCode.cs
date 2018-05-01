@@ -18,7 +18,6 @@ public class NewSpawningCode : MonoBehaviour {
     }
     private void Update()
     {
-        print("UPDATE");
         time += Time.deltaTime;
 
         

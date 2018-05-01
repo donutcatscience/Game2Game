@@ -35,10 +35,13 @@ public class SwordMode : MonoBehaviour {
     private float currentTime;
     private int comboCount = 0;
 
+    LayerMask minion;
+
 	// Use this for initialization
 	void Start () {
         source = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        minion = LayerMask.NameToLayer("Minion");
 	}
 	
 	// Update is called once per frame
@@ -98,15 +101,16 @@ public class SwordMode : MonoBehaviour {
         animator.SetTrigger("Idle");
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.layer == minion)
         {
-            source.PlayOneShot(hitEnemy);
-
-            Enemy target = other.transform.GetComponent<Enemy>();
-            target.TakeDamage(damage);
-
+            if (other.GetComponent<BaseVariables>().minionSide == MinionSide.Black)
+            {
+                source.PlayOneShot(hitEnemy);
+                BaseVariables target = other.gameObject.GetComponent<BaseVariables>();
+                target.health -= 20;
+            }
             //Swing particle Effects Coming Soon
             //GameObject impactGo = Instantiate(impactEffect, other.transform.position, Quaternion.LookRotation(other.transform.position));
             //Destroy(impactGo, impactDestroyTime);

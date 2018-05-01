@@ -109,7 +109,7 @@ public class BaseVariables : MonoBehaviour
         isDead = false;
 
         NewSpawningCode.minionAmount++;
-        print("SIZE: " + NewSpawningCode.minionAmount);
+        //print("SIZE: " + NewSpawningCode.minionAmount);
     }
 
     private void LateUpdate()
