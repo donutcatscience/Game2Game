@@ -193,8 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   side: 0
-  hitSolid: {fileID: 0}
-  hitEnemy: {fileID: 8300000, guid: db87e6bace259c74db302e3b1cd3f553, type: 3}
+  hitEnemySound: {fileID: 8300000, guid: db87e6bace259c74db302e3b1cd3f553, type: 3}
 --- !u!135 &135934642249507420
 SphereCollider:
   m_ObjectHideFlags: 1
