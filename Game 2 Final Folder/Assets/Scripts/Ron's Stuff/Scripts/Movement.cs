@@ -80,8 +80,6 @@ public class Movement : MonoBehaviour
         }
         #endregion
 
-        // lock cursor
-        Cursor.lockState = CursorLockMode.Locked;
 
         // print noise increments
         print(increment[0] + " " + increment[1] + " " + increment[2]);
@@ -233,8 +231,12 @@ public class Movement : MonoBehaviour
 
     private void HandleRotationMovement()
     {
+        Vector2 md = Vector2.zero;
         // create a vector with mouse x & y directions
-        Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        if (!PauseMenu.pausetoggle)
+        {
+            md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        }
         // add the vector values to the vector mouseDir
         mouseDir += md;
         // clamp the y direction of the camera

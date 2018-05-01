@@ -18,11 +18,12 @@ public class ObjectiveTrigger : MonoBehaviour
     public float objectiveProgress = 0f;
 
 
-    public static bool? win = null;
+    public static bool? win;
 
     private void Awake()
     {
         startObj = captured;
+        win = null;
     }
 
     private void Update()

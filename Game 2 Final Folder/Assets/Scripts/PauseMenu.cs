@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
     public GameObject pauseCanvas;
-    public bool pausetoggle = false;
+    public static bool pausetoggle;
     Save file; 
     // Use this for initialization
     void Start () {
         file = new Save();
         pauseCanvas.SetActive(false);
+        pausetoggle = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	// Update is called once per frame
@@ -22,12 +24,22 @@ public class PauseMenu : MonoBehaviour {
             Cursor.visible = !Cursor.visible;
             pauseCanvas.SetActive(pausetoggle);
 
-            if (pausetoggle) Time.timeScale = 0f;
-            else Time.timeScale = 1f;
+            if (pausetoggle)
+            {
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
 
 
 
-                //Cursor.lockState = CursorLockMode.None;
+            
         }
 
     }

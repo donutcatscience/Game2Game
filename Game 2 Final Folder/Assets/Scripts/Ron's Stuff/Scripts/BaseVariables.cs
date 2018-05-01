@@ -106,6 +106,9 @@ public class BaseVariables : MonoBehaviour
         health = maxHealth;
 
         isDead = false;
+
+        NewSpawningCode.minionAmount++;
+        print("SIZE: " + NewSpawningCode.minionAmount);
     }
 
     private void LateUpdate()
@@ -219,6 +222,16 @@ public class BaseVariables : MonoBehaviour
     void RangedAttack()
     {
         GetComponentInChildren<LaunchProjectile>().attack = true;
+    }
+
+    void Death()
+    {
+        NewSpawningCode.minionAmount--;
+        // put the code for summoning resources here
+
+
+        print("SIZE: " + NewSpawningCode.minionAmount);
+        Destroy(gameObject);
     }
 
     #endregion
