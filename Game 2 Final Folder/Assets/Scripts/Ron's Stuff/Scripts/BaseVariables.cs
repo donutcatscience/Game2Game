@@ -228,18 +228,12 @@ public class BaseVariables : MonoBehaviour
     void Death()
     {
         NewSpawningCode.minionAmount--;
-<<<<<<< HEAD
 
-=======
->>>>>>> 095cf808c4a1250c50953ef8c088114cbd948ddf
         float xpos = transform.position.x;
         float zpos = transform.position.z;
-        float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(xpos, 0, zpos)) + 3.85f;
+        float ypos = Terrain.activeTerrain.SampleHeight(new Vector3(xpos, 0, zpos)) + 0.85f;
         Object instanceObj = Instantiate(prefabToSpawn, new Vector3(xpos, ypos, zpos), Quaternion.identity);
-<<<<<<< HEAD
 
-=======
->>>>>>> 095cf808c4a1250c50953ef8c088114cbd948ddf
 
 
         print("SIZE: " + NewSpawningCode.minionAmount);
