@@ -13,37 +13,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: nearbyAlly
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: inMeleeRange
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: criticalHealth
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: atDestination
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: FSM
@@ -109,6 +109,7 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!114 &114285341277500074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +177,7 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!114 &114950841008428992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +194,7 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!114 &114963778335705768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +235,7 @@ MonoBehaviour:
   _nearbyAlly: 1860974009
   _inMeleeRange: 598454076
   _atDestination: 679542595
+  _isDead: 1276664872
 --- !u!1101 &1101001843534419872
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -743,7 +747,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Patrol
-  m_Speed: 1
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101844434336044414}
@@ -771,7 +775,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pursuit
-  m_Speed: 1
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101309650571561624}
@@ -800,7 +804,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Death
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:

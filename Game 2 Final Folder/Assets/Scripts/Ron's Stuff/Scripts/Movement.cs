@@ -72,6 +72,10 @@ public class Movement : MonoBehaviour
     int _casterMode = Animator.StringToHash("casterMode");
 
     public ParticleSystem pc;
+    public CapsuleCollider pcCol;
+    LayerMask gem;
+
+    public int gemCount;
 
     private void Awake()
     {
@@ -88,6 +92,9 @@ public class Movement : MonoBehaviour
 
         // set gravity
         vspeed = -9.8f * Time.deltaTime;
+
+        gemCount = 0;
+        gem = LayerMask.NameToLayer("Gem");
     }
 
 
@@ -150,8 +157,14 @@ public class Movement : MonoBehaviour
             {
                 print("click hold");
                 pc.Play();
+                pcCol.enabled = true;
             }
-            else pc.Stop();
+            else
+            {
+                pc.Stop();
+                pcCol.enabled = false;
+
+            }
 
 
         }
@@ -160,6 +173,7 @@ public class Movement : MonoBehaviour
             anim.SetBool(_casterMode, false);
             bounds.x = 50f;
             bounds.y = 15f;
+            pcCol.enabled = false;
         }
         #endregion
         #region block
@@ -214,6 +228,17 @@ public class Movement : MonoBehaviour
 
         HandleRotationMovement();
 
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == gem)
+        {
+            Destroy(other.gameObject);
+            gemCount += Random.Range(3, 5);
+            print("gem count: " + gemCount);
+        }
     }
 
     #region functions & coroutines

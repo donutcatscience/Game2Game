@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23258930790372192}
   - component: {fileID: 114256981054807286}
   - component: {fileID: 54499536010825350}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Gem
   m_TagString: Pick Up
   m_Icon: {fileID: 0}
