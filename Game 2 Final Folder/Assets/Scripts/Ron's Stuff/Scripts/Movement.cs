@@ -71,6 +71,8 @@ public class Movement : MonoBehaviour
     // hash for caster mode offset position
     int _casterMode = Animator.StringToHash("casterMode");
 
+    public ParticleSystem pc;
+
     private void Awake()
     {
         #region noise
@@ -143,6 +145,15 @@ public class Movement : MonoBehaviour
             }
             bounds.x = 95f;
             bounds.y =  20f;
+
+            if (Input.GetMouseButton(1))
+            {
+                print("click hold");
+                pc.Play();
+            }
+            else pc.Stop();
+
+
         }
         else
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeamController : MonoBehaviour 
 {
     private double angle;
-    private bool active;
+    public bool active;
     private ParticleSystem ps;
 
 	// Use this for initialization
@@ -31,6 +31,11 @@ public class BeamController : MonoBehaviour
         }
 
         if(!active && angle == 60)
+        {
+            ps.Stop();
+        }
+
+        if(!active)
         {
             ps.Stop();
         }

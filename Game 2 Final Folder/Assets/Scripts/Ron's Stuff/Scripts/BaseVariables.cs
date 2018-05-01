@@ -227,6 +227,7 @@ public class BaseVariables : MonoBehaviour
     void Death()
     {
         NewSpawningCode.minionAmount--;
+
         // put the code for summoning resources here
 
 
