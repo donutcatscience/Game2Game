@@ -8,6 +8,6 @@ public class BeamDamage : MonoBehaviour {
     {
         if (other.gameObject == gameObject) return;
 
-        other.GetComponent<BaseVariables>().health -= 2f;
+            other.GetComponent<BaseVariables>().health -= 2f;
     }
 }

@@ -68,7 +68,7 @@ public class BaseVariables : MonoBehaviour
     //grabs object to spawn on enemy death
     public GameObject prefabToSpawn;
 
-
+    public AudioClip minionDeath;
 
     #endregion
 
@@ -238,6 +238,12 @@ public class BaseVariables : MonoBehaviour
 
         print("SIZE: " + NewSpawningCode.minionAmount);
         Destroy(gameObject);
+    }
+
+    void DeathSound()
+    {
+        // play death sound of minion
+        GetComponent<AudioSource>().PlayOneShot(minionDeath);
     }
 
     #endregion

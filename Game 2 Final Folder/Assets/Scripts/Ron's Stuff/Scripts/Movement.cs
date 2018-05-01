@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
     public CapsuleCollider pcCol;
     LayerMask gem;
 
-    public int gemCount;
+    public static int gemCount;
 
     private void Awake()
     {
@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
         // set gravity
         vspeed = -9.8f * Time.deltaTime;
 
-        gemCount = 0;
+        gemCount = 500;
         gem = LayerMask.NameToLayer("Gem");
     }
 
@@ -148,7 +148,11 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 print("click");
-                attack = true;
+                if (gemCount > 0)
+                {
+                    attack = true;
+                    gemCount -= 3;
+                }
             }
             bounds.x = 95f;
             bounds.y =  20f;
@@ -156,8 +160,17 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 print("click hold");
-                pc.Play();
-                pcCol.enabled = true;
+                if (gemCount > 0)
+                {
+                    pc.Play();
+                    gemCount--;
+                    pcCol.enabled = true;
+                }
+                else
+                {
+                    pc.Stop();
+                    pcCol.enabled = false;
+                }
             }
             else
             {
@@ -236,7 +249,7 @@ public class Movement : MonoBehaviour
         if(other.gameObject.layer == gem)
         {
             Destroy(other.gameObject);
-            gemCount += Random.Range(3, 5);
+            gemCount += Random.Range(4, 6);
             print("gem count: " + gemCount);
         }
     }

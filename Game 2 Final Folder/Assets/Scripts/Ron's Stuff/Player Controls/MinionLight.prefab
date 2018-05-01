@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 136652808675760100}
   - component: {fileID: 195484984683188416}
   - component: {fileID: 54919511142426046}
+  - component: {fileID: 82179986474550530}
   m_Layer: 11
   m_Name: MinionLight
   m_TagString: Untagged
@@ -851,7 +852,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533108516239038}
-  m_LocalRotation: {x: -0.11875083, y: -0.6770272, z: -0.1354773, w: 0.71356726}
+  m_LocalRotation: {x: -0.11875084, y: -0.6770273, z: -0.13547732, w: 0.7135673}
   m_LocalPosition: {x: -0.34108126, y: -0.00000027567148, z: -0.00000004656613}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children: []
@@ -1006,7 +1007,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677275059933244}
-  m_LocalRotation: {x: 0.68225855, y: 0.6822583, z: -0.18580507, w: -0.18580498}
+  m_LocalRotation: {x: 0.6822585, y: 0.68225825, z: -0.18580505, w: -0.18580496}
   m_LocalPosition: {x: -1.0303488, y: -0.8995278, z: -0.3508535}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -1543,6 +1544,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82179986474550530
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413108702366442}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95298422910652508
 Animator:
   serializedVersion: 3
@@ -1611,6 +1692,7 @@ MonoBehaviour:
   nearbyAllyUnits: []
   prefabToSpawn: {fileID: 1569857751851562, guid: 6aed26141af09e947b205c6639119b90,
     type: 2}
+  minionDeath: {fileID: 0}
 --- !u!114 &114797960995574296
 MonoBehaviour:
   m_ObjectHideFlags: 1
